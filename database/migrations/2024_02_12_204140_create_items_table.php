@@ -14,9 +14,17 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('name', 100)->index();
-            $table->string('type', 100)->nullable();
-            $table->string('detail', 500)->nullable();
+            $table->string('name')->index();
+            $table->string('type');
+            $table->longText('image_name')->nullable();  
+            $table->string('model_no');
+            $table->string('order_name');
+            $table->string('order_person');
+            $table->string('order_phone');
+            $table->integer('stock');
+            $table->integer('minimum_stock');
+            $table->integer('order_quantity');
+            $table->integer('price');
             $table->timestamps();
         });
     }

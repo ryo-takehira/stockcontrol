@@ -12,10 +12,19 @@ class Item extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'user_id',
         'name',
         'type',
-        'detail',
+        'image_name',
+        'model_no',
+        'order_name',
+        'order_person',
+        'order_phone',
+        'stock',
+        'minimum_stock',
+        'order_quantity',
+        'price',
     ];
 
     /**
