@@ -32,24 +32,30 @@ class ItemController extends Controller
     /**
      * 商品登録
      */
-    public function add(Request $request)
+    public function add(Request $request, Item $items)
     {
-
-
+        // $items = $request->all();
+        if ($request->isMethod('post')) {
+// dd($request);
         // $requestのvalidate(データの確認)を行い$itemlistsへ
+        // $items = Validator::make($request->all(),[
         $items = $request->validate([
-            'name' => 'required'|'max:100',
-            'type' => 'required',
-            'model_no' => 'required||max:100',
-            'order_name' => 'required|max:15',
-            'order_person' => 'required|max:100',
-            'order_phone' => 'required|integer',
-            'stock_unit' => 'required|max:50',
-            'stock' => 'required|integer',
-            'minimum_stock' => 'required|integer',
-            'order_quantity' => 'required|integer',
-            'price' => 'required|integer',
+        // $this->validate($request, [
+            'name' => ['required'|'max:100'],
+            'type' => ['required'],
+            'model_no' => ['required||max:100'],
+            'order_name' => ['required|max:15'],
+            'order_person' => ['required|max:100'],
+            'order_phone' => ['required|integer'],
+            'stock_unit' => ['required|max:50'],
+            'stock' => ['required|integer'],
+            'minimum_stock' => ['required|integer'],
+            'order_quantity' => ['required|integer'],
+            'price' => ['required|integer'],
         ]);
+
+        データの作成
+        Item::create($items);
 
         Item::create([
             'user_id' => Auth::user()->id,
@@ -67,27 +73,27 @@ class ItemController extends Controller
         ]);
 
 
-        // POSTリクエストのとき
-        if ($request->isMethod('post')) {
-            // バリデーション
-            $this->validate($request, [
-                'name' => 'required|max:100',
-            ]);
+        // // POSTリクエストのとき
+        //     if ($request->isMethod('post')) {
+        //         // バリデーション
+        //         $this->validate($request, [
+        //             'name' => 'required|max:100',
+        //         ]);
 
-            // 商品登録
-        // データの作成
-        Item::create($items);
+        //         // 商品登録
+        //     // データの作成
+        //     Item::create($items);
 
-            Item::create([
-                'user_id' => Auth::user()->id,
-                'name' => $request->name,
-                'type' => $request->type,
-                'detail' => $request->detail,
-            ]);
+        //         Item::create([
+        //             'user_id' => Auth::user()->id,
+        //             'name' => $request->name,
+        //             'type' => $request->type,
+        //             'detail' => $request->detail,
+        //         ]);
 
-            return redirect('/items');
-        }
-
-        return view('item.add');
+                return redirect('/items');
+            }
+            return view('item.add');
     }
+        
 }
