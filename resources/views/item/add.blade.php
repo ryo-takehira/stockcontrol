@@ -71,6 +71,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="stock_unit">在庫単位</label>
+                            <input type="text" class="form-control" id="stock_unit" name="stock_unit" placeholder="在庫単位:１本、１梱包等">
+                        </div>
+
+                        <div class="form-group">
                             <label for="stock">在庫数</label>
                             <input type="number" class="form-control" id="stock" name="stock" placeholder="在庫数">
                         </div>

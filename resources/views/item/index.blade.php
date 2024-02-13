@@ -32,6 +32,7 @@
                                 <th>発注先</th>
                                 <th>発注先担当者</th>
                                 <th>発注先電話番号</th>
+                                <th>在庫単位</th>
                                 <th>在庫数</th>
                                 <th>最低在庫数</th>
                                 <th>発注数</th>
@@ -49,6 +50,7 @@
                                     <td>{{ $item->order_name}}</td>
                                     <td>{{ $item->order_person}}</td>
                                     <td>{{ $item->order_phone}}</td>
+                                    <td>{{ $item->stock_unit}}</td>
                                     <td>{{ $item->stock}}</td>
                                     <td>{{ $item->minimum_stock}}</td>
                                     <td>{{ $item->order_quantity}}</td>

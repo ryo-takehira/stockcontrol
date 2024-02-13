@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('order_name');
             $table->string('order_person');
             $table->string('order_phone');
+            $table->integer('stock_unit');
             $table->integer('stock');
             $table->integer('minimum_stock');
             $table->integer('order_quantity');
