@@ -45,8 +45,4 @@ Route::prefix('items')->group(function () {
 
 
 
-    // データ削除
-    Route::post('/{item}/edit', 
-    [App\Http\Controllers\ItemController::class, 'edit']);
-
 
