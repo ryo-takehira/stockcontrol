@@ -32,8 +32,21 @@ Route::prefix('items')->group(function () {
     // 登録実行
     Route::post('/add', 
     [App\Http\Controllers\ItemController::class, 'add']);
+    // 編集フォーム表示
+    Route::get('/{item}/edit', 
+    [App\Http\Controllers\ItemController::class, 'edit']);
+    // 編集実行
+    Route::post('/{item}/edit', 
+    [App\Http\Controllers\ItemController::class, 'edit']);
+    // 入庫実行
+    Route::post('/{item}/storing', 
+    [App\Http\Controllers\ItemController::class, 'storing']);
 });
 
 
+
+    // データ削除
+    Route::post('/{item}/edit', 
+    [App\Http\Controllers\ItemController::class, 'edit']);
 
 

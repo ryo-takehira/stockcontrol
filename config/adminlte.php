@@ -63,8 +63,9 @@ return [
     |
     */
 
-    'logo' => '<b>商品管理</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>備品管理</b>',
+    // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/3719-600x600.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -295,6 +296,7 @@ return [
             'url'  => 'items',
             'icon' => 'fas fa-gamepad',
         ],
+        
 
         // AdminLTEデフォルト
         /*

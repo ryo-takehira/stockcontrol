@@ -100,8 +100,8 @@ class ItemController extends Controller
 
             Item::latest('updated_at')->paginate(6);
 
-            // 商品管理画面へ
-            return redirect('/items');
+            // 備品管理画面へ
+            return redirect('/items')->with('success',$request['name'] . ' が登録されました。');
         }
 
         return view('item.add');
@@ -116,12 +116,106 @@ class ItemController extends Controller
 
     public function delete(Item $item)
     {
-
+        
         $item->delete();
 
         Item::latest('updated_at')->paginate(6);
 
-        return redirect('/items');
+        return redirect('/items')->with('success',$item['name'] . ' が削除されました。');
+    }
+
+
+
+        /**
+     * 備品編集
+     */
+    public function edit(Request $request, Item $item)
+    {
+        // ユーザーid確認コード
+        // dd(Auth::user()->id);
+
+        if ($request->isMethod('post')) {
+
+            $item_id = $request['item_id'];
+
+            // print_r($item_id);
+            // exit;
+
+            $itemupdate = $request->validate([
+                'name' => 'required|max:100',
+                'type' => 'required',
+                'model_no' => 'required|max:100',
+                'order_name' => 'required|max:15',
+                'order_person' => 'required|max:100',
+                'order_phone' => 'required|regex:/^0[7-9]0\d{8}$/',
+                'stock_unit' => 'required|max:50',
+                'stock' => 'required|integer',
+                'minimum_stock' => 'required|integer',
+                'order_quantity' => 'required|integer',
+                'price' => 'required|integer',
+            ]);
+
+            // dd($items);  
+
+            // dd($request->file('image_name'));
+
+            // hasFile メソッドでアップロードファイルの存在を確認
+            if ($request->hasFile('image_name')) {
+
+                $image_name = $request->file('image_name');
+
+                // ファイル名を取得(ファイル名.拡張子)
+                $fileNmae = $image_name->getClientOriginalName();
+
+                // ファイルの名から拡張子のみを取り出す
+                $type_name = pathinfo($fileNmae, PATHINFO_EXTENSION);
+
+                // ファイル名をbase64形式でデータのimage_nameに入れる
+                $itemupdate['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($image_name->path()));
+
+                // アップロードファイルの存在なし 
+                // no_image用の画像データ->config(定数);->$itemlists[image_name];へ
+            } else {
+                $item['image_name'] = config('noimage.no_image');
+            }
+
+            // print_r($item);
+            // exit;
+
+
+            $item->where('id', $item_id)->update($itemupdate);
+
+            Item::latest('updated_at')->paginate(6);
+
+            // 商品管理画面へ
+            return redirect('/items')->with('success',$request['name'] . ' が更新されました。');
+        }
+
+        return view('item.edit', compact('item'));
+    }
+
+
+
+
+        /**
+     * 入庫
+     *
+     * @param Request $request
+     */
+
+    public function storing(Item $item)
+    {
+        // $itemlistのstockは$itemlistのstock足す$itemlistのorders
+        $item->stock = $item->stock + $item->order_quantity;
+
+        // $itemlistを更新する
+        $item->save();
+
+        Item::latest('updated_at')->paginate(6);
+
+        // 更新後item一覧へ
+        return redirect('/items')->with('success', $item['name'] .' の在庫が入庫されました。');
+
     }
 
 

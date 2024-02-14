@@ -6,7 +6,14 @@
 @section('title', '商品一覧')
 
 @section('content_header')
+    <div class="d-flex">
     <h1>備品一覧</h1>
+    @if(session('success'))
+    <div id="successMessage" class="custom-message">
+        {{ session('success') }}
+    </div>
+    @endif
+    </div>
 @stop
 
 @section('content')
@@ -16,12 +23,6 @@
                 <div class="card-header">
                     <h3 class="card-title">備品一覧</h3>
 
-
-                        @if(session('success'))
-                        <div id="successMessage" class="custom-message mt-4">
-                            {{ session('success') }}
-                        </div>
-                        @endif
                         
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
@@ -31,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body table-responsive p-0">
+                <div class="table-responsive p-0">
                     <table class="table text-center text-nowrap">
                     <colgroup span="3"></colgroup>
                         <thead>
@@ -73,18 +74,18 @@
                                     <div class="align-middle">
                                     <td class="align-middle">
                                         <!-- 編集ボタン -->
-                                        <a href="{{ url('/item/'. $item->id . '/edit') }}" class="btn btn-warning">編集</a>
+                                        <a href="{{ url('/items/'. $item->id .'/edit') }}" class="btn btn-warning">編集</a>
                                     </td>
                                     <td class="align-middle">
                                         <!-- 削除ボタン -->
-                                        <form action="/item/{{$item->id}}/delete" method="POST">
+                                        <form action="/items/{{$item->id}}/delete" method="POST">
                                             {{ csrf_field() }}
                                             <input type="submit" value="削除" class="btn btn-danger">
                                         </form>
                                     </td>
                                     <td class="align-middle">
                                         <!-- 入庫ボタン -->
-                                        <form action="/item/{{$item->id}}/storing" method="POST">
+                                        <form action="/items/{{$item->id}}/storing" method="POST">
                                             @csrf
                                             <input type="submit" value="入庫" class="btn btn-primary">
                                         </form>
@@ -107,6 +108,23 @@
             </div>
         </div>
     </div>
+
+
+        <!-- jquery読込 -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // ページロード後に実行されるコード
+
+            // メッセージが存在する場合
+            if ($('#successMessage').length) {
+                // メッセージを3秒後にフェードアウト
+                setTimeout(function() {
+                    $('#successMessage').fadeOut('slow');
+                }, 3000);
+            }
+        });
+    </script>
 @stop
 
 @section('css')
