@@ -24,6 +24,7 @@
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
+                                
                                 <th>ID</th>
                                 <th>名前</th>
                                 <th>種別</th>
