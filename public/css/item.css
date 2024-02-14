@@ -1,0 +1,190 @@
+
+
+/* カテゴリドロップダウンリスト */
+.dropdown-custom {
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+.dropdown-custommenu {
+
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+
+.dropdown-search:hover{
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    background-color: white;
+}
+
+.dropdown-items:hover{
+    background-color: black;
+    color: white;
+}
+
+
+/* メッセージのスタイル */
+.custom-message {
+    margin: 0 0 0 100px;
+    height: 5vh;
+    width: 40vh;
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+
+    /* 垂平方向真ん中に合わせ */
+    justify-content: center;
+    /* 垂直方向真ん中に合わせ */
+    align-items: center;
+    /* Flex container-fluidと、子要素Flex Itemになる。
+    Flex container-fluid内のアイテムは、主軸（横方向または縦方向）に沿って柔軟に配置できる */
+    display: flex;
+
+    /* z-indexは値が大きいほど手前側に表示されます */
+    z-index: 999;
+}
+
+
+/* エラーメッセージのスタイル */
+.custom-message-error {
+
+    height: 200px;
+    width: 500px;
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+
+    /* 垂平方向真ん中に合わせ */
+    justify-content: center;
+    /* 垂直方向真ん中に合わせ */
+    align-items: center;
+    /* Flex container-fluidと、子要素Flex Itemになる。
+    Flex container-fluid内のアイテムは、主軸（横方向または縦方向）に沿って柔軟に配置できる */
+
+    /* z-indexは値が大きいほど手前側に表示されます */
+    z-index: 999;
+}
+
+
+/* 新規作成ボタンのスタイル */
+.create-button_ {
+    margin-top: 20px;
+
+}
+
+.create-button {
+    position: fixed;
+    right: 10px;
+    top: 104px;
+
+    width: 150px;
+    height: 45px;
+    font-weight: 200;
+
+
+    text-align: center;
+    justify-content: center;
+
+    background-color: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    float: right;
+    padding: 10px;
+
+}
+
+
+
+/* テーブルのスタイル */
+.table-header {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    height: 30px;
+    background-color: #ffffff5a;
+    margin-top: 0px;
+    padding-top: 0px;
+    z-index: 3;
+    width: 100%;
+}
+
+
+
+.table-wrap {
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    left: 0px;
+}
+
+.td_line:hover {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 50px;
+    vertical-align: middle;
+    padding: 0 0px;
+    border: 1px solid #ccc;
+    background-color:#ccc ;
+}
+
+th,
+td {
+
+    width: 200px;
+    height: 50px;
+    vertical-align: middle;
+    padding: 0 0px;
+
+
+}
+
+.fixed01,
+.fixed02 {
+    position: sticky;
+    top: 0;
+    left: 0;
+    color:black;
+    background: white;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        width: 100%;
+        height: 100%;
+
+    }
+}
+
+.fixed01 {
+    z-index: 2;
+}
+
+.fixed02 {
+    z-index: 1;
+}
+
+
+
+
+
+
+
+.paginate_item{
+    font-size: 20px;
+}
