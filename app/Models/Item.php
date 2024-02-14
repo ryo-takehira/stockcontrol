@@ -21,6 +21,7 @@ class Item extends Model
         'order_name',
         'order_person',
         'order_phone',
+        'stock_unit',
         'stock',
         'minimum_stock',
         'order_quantity',
