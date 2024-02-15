@@ -33,11 +33,12 @@
 .custom-message {
     margin: 0 0 0 100px;
     height: 5vh;
-    width: 40vh;
+    width: auto;
     background-color: #ffffff;
     color: #000;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    padding: 0 10px 0 10px;
 
     /* 垂平方向真ん中に合わせ */
     justify-content: center;

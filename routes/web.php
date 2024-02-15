@@ -44,6 +44,9 @@ Route::prefix('items')->group(function () {
     // 入庫実行
     Route::post('/{item}/storing', 
     [App\Http\Controllers\ItemController::class, 'storing']);
+    // 在庫持出
+    Route::post('/{item}/take_out', 
+    [App\Http\Controllers\ItemController::class, 'take_out']);
 });
 
 
