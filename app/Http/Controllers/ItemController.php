@@ -19,7 +19,7 @@ class ItemController extends Controller
     }
 
     /**
-     * 商品一覧
+     * 備品管理
      */
     public function index()
     {
@@ -29,6 +29,19 @@ class ItemController extends Controller
                 // viewのItemにデータを受け渡す
 
         return view('item.index', compact('items'));
+    }
+
+        /**
+     * 商品一覧
+     */
+    public function used_item()
+    {
+
+                // modelのItemから全てのデータを受け取る
+                $items = Item::paginate(6);
+                // viewのItemにデータを受け渡す
+
+        return view('item.used_item', compact('items'));
     }
 
     /**
