@@ -298,9 +298,15 @@ return [
             'icon' => 'fas fa-gamepad',
         ],
         [
+            'key'  => 'menu1_admin_only',
             'text' => '備品管理',
             'url'  => 'items/index',
             'icon' => 'fas fa-gamepad',
+        ],
+
+        [
+            'type'         => 'fullscreen-widget',
+            'topnav_right' => true,
         ],
 
 
