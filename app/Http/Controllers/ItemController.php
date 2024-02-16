@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 
+
 class ItemController extends Controller
 {
     /**
@@ -19,7 +20,7 @@ class ItemController extends Controller
     }
 
     /**
-     * 商品一覧
+     * 備品管理
      */
     public function index()
     {
@@ -31,8 +32,48 @@ class ItemController extends Controller
         return view('item.index', compact('items'));
     }
 
+        /**
+     * 備品一覧
+     */
+    public function used_item()
+    {
+
+                // modelのItemから全てのデータを受け取る
+                $items = Item::paginate(6);
+                // viewのItemにデータを受け渡す
+
+        return view('item.used_item', compact('items'));
+    }
+
+            /**
+     * 備品持出モーダルへ移動
+     */
+    public function take_out(Request $request,$id)
+    {
+
+        // $item = Item::find($id);
+        // $items = $request->validate([
+        //     'input_take_out' => 'required|integer|max:3',
+        // ]);
+
+
+        $used_quantity = $request->input('take_out');
+
+        $model = Item::find($id);
+
+        $model->update(['stock' => $model->stock - $used_quantity,]);
+
+                // modelのItemから全てのデータを受け取る
+                $items = Item::paginate(6);
+                // viewのItemにデータを受け渡す
+
+        // return view('item.used_item', compact('items'));
+        return redirect('/items')->with('success',$model['name'] . ' が ' . $used_quantity . $model['stock_unit'] . ' 持出確定されました。');
+
+    }
+
     /**
-     * 商品登録
+     * 備品登録
      */
     public function add(Request $request, Item $items)
     {
@@ -121,7 +162,7 @@ class ItemController extends Controller
 
         Item::latest('updated_at')->paginate(6);
 
-        return redirect('/items')->with('success',$item['name'] . ' が削除されました。');
+        return redirect('/items/index')->with('success',$item['name'] . ' が削除されました。');
     }
 
 
@@ -188,7 +229,7 @@ class ItemController extends Controller
             Item::latest('updated_at')->paginate(6);
 
             // 商品管理画面へ
-            return redirect('/items')->with('success',$request['name'] . ' が更新されました。');
+            return redirect('/items/index')->with('success',$request['name'] . ' が更新されました。');
         }
 
         return view('item.edit', compact('item'));
@@ -214,7 +255,7 @@ class ItemController extends Controller
         Item::latest('updated_at')->paginate(6);
 
         // 更新後item一覧へ
-        return redirect('/items')->with('success', $item['name'] .' の在庫が入庫されました。');
+        return redirect('/items/index')->with('success', $item['name'] .' の在庫が入庫されました。');
 
     }
 

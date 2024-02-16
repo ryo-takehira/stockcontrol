@@ -65,7 +65,7 @@ return [
 
     'logo' => '<b>備品管理</b>',
     // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img' => 'vendor/adminlte/dist/img/3719-600x600.jpg',
+    'logo_img' => 'vendor/adminlte/dist/img/86306736-ユーザー管理アイコン。.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -110,7 +110,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/86306736-ユーザー管理アイコン。.jpg',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -151,9 +151,9 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
-    'layout_fixed_footer' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
+    'layout_fixed_footer' => true,
     'layout_dark_mode' => null,
 
     /*
@@ -292,11 +292,24 @@ return [
 
     'menu' => [
         [
-            'text' => '商品一覧',
-            'url'  => 'items',
+            'text'       => '備品一覧',
+            'icon_color' => 'red',
+            'url'        => 'items',
             'icon' => 'fas fa-gamepad',
         ],
-        
+        [
+            // 管理権限キー 'key'  => 'menu1_admin_only', EventServiceProviderへ
+            'key'  => 'menu1_admin_only',
+            'text' => '備品管理',
+            'url'  => 'items/index',
+            'icon' => 'fas fa-gamepad',
+        ],
+
+        [
+            'type'         => 'fullscreen-widget',
+            'topnav_right' => true,
+        ],
+
 
         // AdminLTEデフォルト
         /*

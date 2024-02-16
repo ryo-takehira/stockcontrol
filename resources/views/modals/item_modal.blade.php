@@ -1,0 +1,51 @@
+<div class="modal fade" id="itemModalLabel{{ $item->id }}" tabindex="-1" aria-labelledby="itemModalLabel{{ $item->id }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-6">
+                                        <img src="{{$item->image_name}}" class="img-fluid" alt="...">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card-body">
+                                            <p class="card-test">備品名:{{ $item->name }}</p>
+                                            <p class="card-text">部署: {{ $item->type }}</p>
+                                            <p class="card-text">型番: {{ $item->model_no }}</p>
+                                            <div class="overflow-auto" style="max-height: 200px;">
+                                                <p class="card-text">現在の在庫数: {{ $item->stock }}</p>
+                                                <p class="card-text">在庫単位: {{ $item->stock_unit }}</p>
+                                                <!-- 削除ボタン -->
+                                                <form action="/items/{{$item->id}}/take_out" method="POST">
+                                                    <div class="form-group d-flex">
+                                                        <label for="order_name" class="mr-3 mt-2">持出数量</label>
+                                                        <input type="integer" class="form-control" id="take_out" name="take_out" placeholder="〇{{ $item->stock_unit }}">
+                                                    </div>
+                                                        {{ csrf_field() }}
+                                                        <input type="submit" value="持ち出す" class="btn btn-primary">
+                                                </form>
+                                            
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+    </div>
+</div>
+</div>
