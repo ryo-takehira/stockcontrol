@@ -298,6 +298,7 @@ return [
             'icon' => 'fas fa-gamepad',
         ],
         [
+            // 管理権限キー 'key'  => 'menu1_admin_only', EventServiceProviderへ
             'key'  => 'menu1_admin_only',
             'text' => '備品管理',
             'url'  => 'items/index',

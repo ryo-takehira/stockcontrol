@@ -26,9 +26,10 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // isAdmin(role)が10の場合、管理メニューを消す
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
             if (auth()->user()->isAdmin == 10){
+                // adminlte menuのキー(menu1_admin_only)で管理メニューを消す
                 $event->menu->remove('menu1_admin_only');
             }
         });

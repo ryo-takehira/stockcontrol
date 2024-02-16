@@ -64,7 +64,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // 管理者はisAdmin=2
         $admin=2;
+        
+        // Useのレコードがなかった場合一般ユーザーとしてisAdminに値を10でセット
         if(User::count()){ $admin=10;}
             return User::create([
                 'name' => $data['name'],
