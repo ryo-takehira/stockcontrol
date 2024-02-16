@@ -83,14 +83,14 @@
                                         <!-- 削除ボタン -->
                                         <form action="/items/{{$item->id}}/delete" method="POST">
                                             {{ csrf_field() }}
-                                            <input type="submit" value="削除" class="btn btn-danger">
+                                            <input type="submit" value="削除" class="btn btn-danger btn-dell">
                                         </form>
                                     </td>
                                     <td class="align-middle">
                                         <!-- 入庫ボタン -->
                                         <form action="/items/{{$item->id}}/storing" method="POST">
                                             @csrf
-                                            <input type="submit" value="入庫" class="btn btn-primary">
+                                            <input type="submit" value="入庫" class="btn btn-primary btn-storing">
                                         </form>
                                     </td>
                                     </div>
@@ -126,6 +126,34 @@
                     $('#successMessage').fadeOut('slow');
                 }, 3000);
             }
+        });
+    </script>
+
+        <!-- データ削除確認用ダイアログ -->
+        <script>
+        $(function() {
+            $(".btn-dell").click(function() {
+                if (confirm("本当に削除しますか？")) {
+                    //そのままsubmit（削除）
+                } else {
+                    //cancel
+                    return false;
+                }
+            });
+        });
+    </script>
+
+    <!-- 入庫確認用ダイアログ -->
+    <script>
+        $(function() {
+            $(".btn-storing").click(function() {
+                if (confirm("入庫確定しますか？")) {
+                    //そのままsubmit（削除）
+                } else {
+                    //cancel
+                    return false;
+                }
+            });
         });
     </script>
 @stop

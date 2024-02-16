@@ -32,15 +32,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="model_no">メールアドレス</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="メールアドレス：{{ $user->email }}" value="{{ $user->email }}">
-                    </div>
-
-                    <div class="form-group">
                         <label>権限</label>
                         <select class="form-control" name="isAdmin" id="isAdmin" value="{{ $user->isAdmin }}">
                             {{ $user->isAdmin }}
-                            <option value="{{ $user->isAdmin }}" @if( old('isAdmin') === "{{ $user->isAdmin }}" ) selected @endif>10</option>
+                            <option value="10">10</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>

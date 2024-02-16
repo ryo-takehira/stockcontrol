@@ -55,23 +55,19 @@ class UserController extends Controller
 
             $userupdate = $request->validate([
                 'name' => 'required|max:100',
-                'email' => 'required|email|unique:users,email',
                 'isAdmin' => 'required',
             ],
             [
                 'name.required' => 'ユーザー名は必須です。',
-                'mail.required' => 'メールアドレスは必須です。',
-                'email.email' => 'メールアドレスではありません。',
-                'email.unique' => 'このメールアドレスは既に登録されています。',
                 'isAdmin.required' => 'ユーザー管理を選択してください。',
             ]);
 
             $user->where('id', $user_id)->update($userupdate);
 
-            User::latest('updated_at')->paginate(6);
+            $users=User::paginate(6);
 
             // ユーザー管理画面へ
-            return redirect('/users/index')->with('success',$request['name'] . ' が更新されました。');
+            return view('user.index', compact('users'));
         }
 
         return view('user.edit', compact('user'));
