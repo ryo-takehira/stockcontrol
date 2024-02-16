@@ -94,6 +94,24 @@ class ItemController extends Controller
                 'minimum_stock' => 'required|integer',
                 'order_quantity' => 'required|integer',
                 'price' => 'required|integer',
+            ],
+            [
+                'name.required' => '備品名は必須です。',
+                'type.required' => '部署を選択してください。',
+                'model_no.required' => '型番、品番は必須です。',
+                'order_name.required' => '発注先は必須です。',
+                'order_person.required' => '発注先担当者は必須です。',
+                'order_phone.required' => '発注先電話番号は必須です。',
+                'order_phone.regex' => '電話番号ではありません。',
+                'stock_unit.required' => '在庫単位は必須です。',
+                'stock.required' => '在庫数は必須です。',
+                'stock.integer' => '在庫数は数字で入力してください。',
+                'minimum_stock.required' => '最低在庫数は必須です。',
+                'minimum_stock.integer' => '最低在庫数は数字で入力してください。',
+                'order_quantity.required' => '発注数は必須です。',
+                'order_quantity.integer' => '発注数は数字で入力してください。',
+                'price.required' => '単価は必須です。',
+                'price.integer' => '単価は数字で入力してください。',
             ]);
 
             // dd($items);  
@@ -194,6 +212,24 @@ class ItemController extends Controller
                 'minimum_stock' => 'required|integer',
                 'order_quantity' => 'required|integer',
                 'price' => 'required|integer',
+            ],
+            [
+                'name.required' => '備品名は必須です。',
+                'type.required' => '部署を選択してください。',
+                'model_no.required' => '型番、品番は必須です。',
+                'order_name.required' => '発注先は必須です。',
+                'order_person.required' => '発注先担当者は必須です。',
+                'order_phone.required' => '発注先電話番号は必須です。',
+                'order_phone.regex' => '電話番号ではありません。',
+                'stock_unit.required' => '在庫単位は必須です。',
+                'stock.required' => '在庫数は必須です。',
+                'stock.integer' => '在庫数は数字で入力してください。',
+                'minimum_stock.required' => '最低在庫数は必須です。',
+                'minimum_stock.integer' => '最低在庫数は数字で入力してください。',
+                'order_quantity.required' => '発注数は必須です。',
+                'order_quantity.integer' => '発注数は数字で入力してください。',
+                'price.required' => '単価は必須です。',
+                'price.integer' => '単価は数字で入力してください。',
             ]);
 
             // dd($items);  
