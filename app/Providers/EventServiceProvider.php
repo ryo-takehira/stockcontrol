@@ -27,6 +27,11 @@ class EventServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
+            if (auth()->user()->isAdmin == 10){
+                $event->menu->remove('menu1_admin_only');
+            }
+        });
     }
 
     /**
