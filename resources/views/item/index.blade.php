@@ -49,6 +49,8 @@
                                 <th class="fixed02">最低在庫数</th>
                                 <th class="fixed02">発注数</th>
                                 <th class="fixed02">単価</th>
+                                <th class="fixed02">登録日時</th>
+                                <th class="fixed02">更新日時</th>
                                 <th class="fixed02 column_operation" colspan="3" scope="colgroup">操作</th>
                             </tr>
                         </thead>
@@ -70,6 +72,8 @@
                                     <td class="align-middle">{{ $item->minimum_stock}}</td>
                                     <td class="align-middle">{{ $item->order_quantity}}</td>
                                     <td class="align-middle">{{ $item->price}}</td>
+                                    <td class="align-middle">{{ $item->created_at}}</td>
+                                    <td class="align-middle">{{ $item->updated_at}}</td>
                                     <div class="align-middle">
                                     <td class="align-middle">
                                         <!-- 編集ボタン -->

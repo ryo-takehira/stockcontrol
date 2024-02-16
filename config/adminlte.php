@@ -304,6 +304,14 @@ return [
             'url'  => 'items/index',
             'icon' => 'fas fa-gamepad',
         ],
+        [
+            // 管理権限キー 'key'  => 'menu1_admin_only', EventServiceProviderへ
+            'key'  => 'menu2_admin_only',
+            'text' => 'ユーザー管理',
+            'icon_color' => 'blue',
+            'url'  => 'users',
+            'icon' => 'fas fa-gamepad',
+        ],
 
         [
             'type'         => 'fullscreen-widget',

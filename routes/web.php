@@ -49,6 +49,16 @@ Route::prefix('items')->group(function () {
     [App\Http\Controllers\ItemController::class, 'take_out']);
 });
 
+Route::prefix('users')->group(function () {
+    // ユーザー一覧画面へ
+    Route::get('/', [App\Http\Controllers\UserController::class,'index']);
+    // データ削除
+    Route::post('/{user}/delete',[App\Http\Controllers\UserController::class,'delete']);
+    // 編集フォーム表示
+    Route::get('/{user}/edit',[App\Http\Controllers\UserController::class,'edit']);
+    // 編集実行
+    Route::post('/{user}/edit',[App\Http\Controllers\UserController::class,'edit']);
+});
 
 
 

@@ -44,44 +44,6 @@
                         </select>
                     </div>
 
-
-                    <!-- <div class="form-group" role="group">
-                            <button type="button" class="form-control text-center custom-btn" data-bs-toggle="dropdown" aria-expanded="false" id="type">
-                                部署
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" data-value="事務">事務</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="CAD">CAD</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="第一工場">第一工場</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="第二工場">第二工場</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="第三工場">第三工場</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="第四工場">第四工場</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <input type="hidden" name="type" id="type_name" value="">
-
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            // ドロップダウンメニューのアイテムがクリックされたときのイベントリスナーを追加
-                            var dropdownItems = document.querySelectorAll('.dropdown-item');
-                            dropdownItems.forEach(function(item) {
-                                item.addEventListener('click', function(event) {
-                                    // クリックされたアイテムのdata-value属性の値を取得
-                                    var selectedValue = event.target.getAttribute('data-value');
-
-                                    // 選択された値を表示する要素にセット
-                                    document.getElementById('type').innerText = selectedValue;
-                                    document.getElementById('type_name').value = selectedValue;
-
-                                    // ここで選択された値に基づく他のアクションを実行することができます
-
-                                });
-                            });
-                        });
-                    </script> -->
-
                     <div class="form-group">
                         <label for="image_name">画像</label><br>
 

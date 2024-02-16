@@ -20,7 +20,7 @@ class ItemController extends Controller
     }
 
     /**
-     * 備品管理
+     * 備品管理画面
      */
     public function index()
     {
@@ -68,6 +68,8 @@ class ItemController extends Controller
                 // viewのItemにデータを受け渡す
 
         // return view('item.used_item', compact('items'));
+
+        // ルート/itemsにリダイレクト
         return redirect('/items')->with('success',$model['name'] . ' が ' . $used_quantity . $model['stock_unit'] . ' 持出確定されました。');
 
     }
