@@ -33,14 +33,14 @@
 
                     <div class="form-group">
                         <label>部署</label>
-                        <select class="form-control" name="type" id="type" value="{{ $item->type }}">
-                            {{ $item->type }}
-                            <option value="事務">事務</option>
-                            <option value="CAD">CAD</option>
-                            <option value="第一工場">第一工場</option>
-                            <option value="第二工場">第二工場</option>
-                            <option value="第三工場">第三工場</option>
-                            <option value="第四工場">第四工場</option>
+                        <select class="form-control" name="type" id="type">
+                            <option value="{{ $item->type }}" {{ old('type') == '' ? 'selected' : '' }}>{{ $item->type }}</option>
+                            <option value="事務" {{ old('type') == '事務' ? 'selected' : '' }}>事務</option>
+                            <option value="CAD" {{ old('type') == 'CAD' ? 'selected' : '' }}>CAD</option>
+                            <option value="第一工場" {{ old('type') == '第一工場' ? 'selected' : '' }}>第一工場</option>
+                            <option value="第二工場" {{ old('type') == '第二工場' ? 'selected' : '' }}>第二工場</option>
+                            <option value="第三工場" {{ old('type') == '第三工場' ? 'selected' : '' }}>第三工場</option>
+                            <option value="第四工場" {{ old('type') == '第四工場' ? 'selected' : '' }}>第四工場</option>
                         </select>
                     </div>
 
