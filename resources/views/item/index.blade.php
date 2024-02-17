@@ -169,6 +169,8 @@
     @section('css')
     <!-- オリジナルstylecssファイル -->
     <link href="{{ asset('/css/item.css') }}" rel="stylesheet">
+    
+    <link href="{{ asset('/css/reset.css') }}" rel="stylesheet">
 
     @stop
 
