@@ -24,14 +24,15 @@
             <div class="card-header">
                 <!-- 検索窓 -->
                 <div class="mb-2 d-flex">
-                    <div class="d-flex">
-                        <form class="d-flex text-align-center" action="{{ url('/items/itemsearch') }}" method="get">
-                            <input class="search-window" type="text" name="search" placeholder="検索キーワード" value=''>
-                            <button type="submit" class="search-button ms-4">検索</button>
-                        </form>
-                    </div>
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm">
+                    <div class="input-group input-group-sm">
+                        <div class="d-flex">
+                            <form class="d-flex text-align-center" action="{{ url('/items/itemsearch') }}" method="get">
+                                <input class="search-window" type="text" name="search" placeholder="検索キーワード" value=''>
+                                <button type="submit" class="search-button ms-4">検索</button>
+                            </form>
+                        </div>
+                        <div class="card-tools text-align-right">
+
                             <div class="input-group-append">
                                 <a href="{{ url('items/add') }}" class="button">備品登録</a>
                             </div>
