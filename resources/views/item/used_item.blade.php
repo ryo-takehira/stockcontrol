@@ -6,7 +6,7 @@
 
 @section('content_header')
     <div class="d-flex">
-    <h1 class="titlename">備品一覧</h1>
+    <h5 class="titlename">備品一覧</h5>
 
     @if(session('success'))
     <div id="successMessage" class="custom-message">

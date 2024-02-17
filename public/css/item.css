@@ -213,3 +213,60 @@ td {
 .paginate_item{
     font-size: 20px;
 }
+
+
+/* 検索機能のスタイル */
+/* 検索窓 */
+.search-window {
+    width: 180px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.search-window:hover {
+    width: 180px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* 検索ボタン */
+.search-button {
+    width: 60px;
+    margin: 0px 15px 0px 20px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.search-button:hover {
+    margin: 0px 15px 0px 20px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.button {
+    width: 85px;
+    height: 35px;
+    font-weight: bold;
+
+    background-color: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    float: center;
+    padding: 10px;
+}
+
+.button:hover {
+    width: 85px;
+    height: 35px;
+    font-weight: bold;
+
+    background-color: #c0c0c0;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    float: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
