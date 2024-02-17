@@ -4,7 +4,7 @@
 
 @section('title', '備品管理')
 
-@section('content_header d-flex')
+@section('content_header')
 <div class="d-flex">
     <h4 class="titlename">備品管理</h4>
 
@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex">
                 <!-- 検索窓 -->
                 <div class="mb-2 d-flex">
                     <div class="input-group input-group-sm">
@@ -34,7 +34,7 @@
                         <div class="card-tools text-align-right">
 
                             <div class="input-group-append">
-                                <a href="{{ url('items/add') }}" class="button">備品登録</a>
+                                <a href="{{ url('items/add') }}" class="button">登録</a>
                             </div>
                         </div>
                     </div>
