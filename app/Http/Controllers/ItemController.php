@@ -25,30 +25,30 @@ class ItemController extends Controller
     public function index()
     {
 
-                // modelのItemから全てのデータを受け取る
-                $items = Item::paginate(6);
-                // viewのItemにデータを受け渡す
+        // modelのItemから全てのデータを受け取る
+        $items = Item::paginate(6);
+        // viewのItemにデータを受け渡す
 
         return view('item.index', compact('items'));
     }
 
-        /**
+    /**
      * 備品一覧
      */
     public function used_item()
     {
 
-                // modelのItemから全てのデータを受け取る
-                $items = Item::paginate(6);
-                // viewのItemにデータを受け渡す
+        // modelのItemから全てのデータを受け取る
+        $items = Item::paginate(6);
+        // viewのItemにデータを受け渡す
 
         return view('item.used_item', compact('items'));
     }
 
-            /**
+    /**
      * 備品持出モーダルへ移動
      */
-    public function take_out(Request $request,$id)
+    public function take_out(Request $request, $id)
     {
 
         // $item = Item::find($id);
@@ -63,15 +63,14 @@ class ItemController extends Controller
 
         $model->update(['stock' => $model->stock - $used_quantity,]);
 
-                // modelのItemから全てのデータを受け取る
-                $items = Item::paginate(6);
-                // viewのItemにデータを受け渡す
+        // modelのItemから全てのデータを受け取る
+        $items = Item::paginate(6);
+        // viewのItemにデータを受け渡す
 
         // return view('item.used_item', compact('items'));
 
         // ルート/itemsにリダイレクト
-        return redirect('/items')->with('success',$model['name'] . ' が ' . $used_quantity . $model['stock_unit'] . ' 持出確定されました。');
-
+        return redirect('/items')->with('success', $model['name'] . ' が ' . $used_quantity . $model['stock_unit'] . ' 持出確定されました。');
     }
 
     /**
@@ -84,37 +83,39 @@ class ItemController extends Controller
 
         if ($request->isMethod('post')) {
 
-            $items = $request->validate([
-                'name' => 'required|max:100',
-                'type' => 'required',
-                'model_no' => 'required|max:100',
-                'order_name' => 'required|max:15',
-                'order_person' => 'required|max:100',
-                'order_phone' => 'required|regex:/^0[7-9]0\d{8}$/',
-                'stock_unit' => 'required|max:50',
-                'stock' => 'required|integer',
-                'minimum_stock' => 'required|integer',
-                'order_quantity' => 'required|integer',
-                'price' => 'required|integer',
-            ],
-            [
-                'name.required' => '備品名は必須です。',
-                'type.required' => '部署を選択してください。',
-                'model_no.required' => '型番、品番は必須です。',
-                'order_name.required' => '発注先は必須です。',
-                'order_person.required' => '発注先担当者は必須です。',
-                'order_phone.required' => '発注先電話番号は必須です。',
-                'order_phone.regex' => '電話番号ではありません。',
-                'stock_unit.required' => '在庫単位は必須です。',
-                'stock.required' => '在庫数は必須です。',
-                'stock.integer' => '在庫数は数字で入力してください。',
-                'minimum_stock.required' => '最低在庫数は必須です。',
-                'minimum_stock.integer' => '最低在庫数は数字で入力してください。',
-                'order_quantity.required' => '発注数は必須です。',
-                'order_quantity.integer' => '発注数は数字で入力してください。',
-                'price.required' => '単価は必須です。',
-                'price.integer' => '単価は数字で入力してください。',
-            ]);
+            $items = $request->validate(
+                [
+                    'name' => 'required|max:100',
+                    'type' => 'required',
+                    'model_no' => 'required|max:100',
+                    'order_name' => 'required|max:15',
+                    'order_person' => 'required|max:100',
+                    'order_phone' => 'required|regex:/^0[7-9]0\d{8}$/',
+                    'stock_unit' => 'required|max:50',
+                    'stock' => 'required|integer',
+                    'minimum_stock' => 'required|integer',
+                    'order_quantity' => 'required|integer',
+                    'price' => 'required|integer',
+                ],
+                [
+                    'name.required' => '備品名は必須です。',
+                    'type.required' => '部署を選択してください。',
+                    'model_no.required' => '型番、品番は必須です。',
+                    'order_name.required' => '発注先は必須です。',
+                    'order_person.required' => '発注先担当者は必須です。',
+                    'order_phone.required' => '発注先電話番号は必須です。',
+                    'order_phone.regex' => '電話番号ではありません。',
+                    'stock_unit.required' => '在庫単位は必須です。',
+                    'stock.required' => '在庫数は必須です。',
+                    'stock.integer' => '在庫数は数字で入力してください。',
+                    'minimum_stock.required' => '最低在庫数は必須です。',
+                    'minimum_stock.integer' => '最低在庫数は数字で入力してください。',
+                    'order_quantity.required' => '発注数は必須です。',
+                    'order_quantity.integer' => '発注数は数字で入力してください。',
+                    'price.required' => '単価は必須です。',
+                    'price.integer' => '単価は数字で入力してください。',
+                ]
+            );
 
             // dd($items);  
 
@@ -162,14 +163,14 @@ class ItemController extends Controller
             Item::latest('updated_at')->paginate(6);
 
             // 備品管理画面へ
-            return redirect('/items/index')->with('success',$request['name'] . ' が登録されました。');
+            return redirect('/items/index')->with('success', $request['name'] . ' が登録されました。');
         }
 
         return view('item.add');
     }
 
 
-        /**
+    /**
      * 削除
      *
      * @param Item $itemlist
@@ -177,17 +178,17 @@ class ItemController extends Controller
 
     public function delete(Item $item)
     {
-        
+
         $item->delete();
 
         Item::latest('updated_at')->paginate(6);
 
-        return redirect('/items/index')->with('success',$item['name'] . ' が削除されました。');
+        return redirect('/items/index')->with('success', $item['name'] . ' が削除されました。');
     }
 
 
 
-        /**
+    /**
      * 備品編集
      */
     public function edit(Request $request, Item $item)
@@ -202,37 +203,39 @@ class ItemController extends Controller
             // print_r($item_id);
             // exit;
 
-            $itemupdate = $request->validate([
-                'name' => 'required|max:100',
-                'type' => 'required',
-                'model_no' => 'required|max:100',
-                'order_name' => 'required|max:15',
-                'order_person' => 'required|max:100',
-                'order_phone' => 'required|regex:/^0[7-9]0\d{8}$/',
-                'stock_unit' => 'required|max:50',
-                'stock' => 'required|integer',
-                'minimum_stock' => 'required|integer',
-                'order_quantity' => 'required|integer',
-                'price' => 'required|integer',
-            ],
-            [
-                'name.required' => '備品名は必須です。',
-                'type.required' => '部署を選択してください。',
-                'model_no.required' => '型番、品番は必須です。',
-                'order_name.required' => '発注先は必須です。',
-                'order_person.required' => '発注先担当者は必須です。',
-                'order_phone.required' => '発注先電話番号は必須です。',
-                'order_phone.regex' => '電話番号ではありません。',
-                'stock_unit.required' => '在庫単位は必須です。',
-                'stock.required' => '在庫数は必須です。',
-                'stock.integer' => '在庫数は数字で入力してください。',
-                'minimum_stock.required' => '最低在庫数は必須です。',
-                'minimum_stock.integer' => '最低在庫数は数字で入力してください。',
-                'order_quantity.required' => '発注数は必須です。',
-                'order_quantity.integer' => '発注数は数字で入力してください。',
-                'price.required' => '単価は必須です。',
-                'price.integer' => '単価は数字で入力してください。',
-            ]);
+            $itemupdate = $request->validate(
+                [
+                    'name' => 'required|max:100',
+                    'type' => 'required',
+                    'model_no' => 'required|max:100',
+                    'order_name' => 'required|max:15',
+                    'order_person' => 'required|max:100',
+                    'order_phone' => 'required|regex:/^0[7-9]0\d{8}$/',
+                    'stock_unit' => 'required|max:50',
+                    'stock' => 'required|integer',
+                    'minimum_stock' => 'required|integer',
+                    'order_quantity' => 'required|integer',
+                    'price' => 'required|integer',
+                ],
+                [
+                    'name.required' => '備品名は必須です。',
+                    'type.required' => '部署を選択してください。',
+                    'model_no.required' => '型番、品番は必須です。',
+                    'order_name.required' => '発注先は必須です。',
+                    'order_person.required' => '発注先担当者は必須です。',
+                    'order_phone.required' => '発注先電話番号は必須です。',
+                    'order_phone.regex' => '電話番号ではありません。',
+                    'stock_unit.required' => '在庫単位は必須です。',
+                    'stock.required' => '在庫数は必須です。',
+                    'stock.integer' => '在庫数は数字で入力してください。',
+                    'minimum_stock.required' => '最低在庫数は必須です。',
+                    'minimum_stock.integer' => '最低在庫数は数字で入力してください。',
+                    'order_quantity.required' => '発注数は必須です。',
+                    'order_quantity.integer' => '発注数は数字で入力してください。',
+                    'price.required' => '単価は必須です。',
+                    'price.integer' => '単価は数字で入力してください。',
+                ]
+            );
 
             // dd($items);  
 
@@ -267,7 +270,7 @@ class ItemController extends Controller
             Item::latest('updated_at')->paginate(6);
 
             // 商品管理画面へ
-            return redirect('/items/index')->with('success',$request['name'] . ' が更新されました。');
+            return redirect('/items/index')->with('success', $request['name'] . ' が更新されました。');
         }
 
         return view('item.edit', compact('item'));
@@ -276,7 +279,7 @@ class ItemController extends Controller
 
 
 
-        /**
+    /**
      * 入庫
      *
      * @param Request $request
@@ -293,28 +296,76 @@ class ItemController extends Controller
         Item::latest('updated_at')->paginate(6);
 
         // 更新後item一覧へ
-        return redirect('/items/index')->with('success', $item['name'] .' の在庫が入庫されました。');
+        return redirect('/items/index')->with('success', $item['name'] . ' の在庫が入庫されました。');
+    }
 
+    // 備品一覧検索(管理画面)
+    public function itemsearch(Request $request)
+    {
+        $items = Item::all();
+
+        $search = $request->input('search');
+
+        $query = Item::query();
+
+        // $query = $query->paginate($query->count());
+
+        if (!empty($search)) {
+
+            // 全角スペースを半角に変換
+            $spaceConversion = mb_convert_kana($search, 's');
+
+            // 単語を半角スペースで区切り、配列にする（例："山田 翔" → ["山田", "翔"]）
+            $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
+
+            // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
+            foreach ($wordArraySearched as $value) {
+
+                $query = Item::where('name', 'like', '%' . $value . '%')
+                    ->orWhere('type', 'like', '%' . $value . '%')
+                    ->orWhere('model_no', 'like', '%' . $value . '%')
+                    ->orWhere('order_name', 'like', '%' . $value . '%');
+            }
+        }
+
+        $items = $query->latest('updated_at')->paginate(10);
+
+        return view('item.index', compact('items'));
     }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // 備品一覧検索(ユーザー面)
+        public function used_itemsearch(Request $request)
+        {
+            $items = Item::all();
+    
+            $search = $request->input('used_search');
+    
+            $query = Item::query();
+    
+            // $query = $query->paginate($query->count());
+    
+            if (!empty($search)) {
+    
+                // 全角スペースを半角に変換
+                $spaceConversion = mb_convert_kana($search, 's');
+    
+                // 単語を半角スペースで区切り、配列にする（例："山田 翔" → ["山田", "翔"]）
+                $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
+    
+                // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
+                foreach ($wordArraySearched as $value) {
+    
+                    $query = Item::where('name', 'like', '%' . $value . '%')
+                        ->orWhere('type', 'like', '%' . $value . '%')
+                        ->orWhere('model_no', 'like', '%' . $value . '%');
+                }
+            }
+    
+            $items = $query->latest('updated_at')->paginate(10);
+    
+            return view('item.used_item', compact('items'));
+        }
+    
 }

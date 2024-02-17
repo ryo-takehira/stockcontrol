@@ -26,7 +26,7 @@
                 <div class="mt-2">
 
                     <div class="d-flex">
-                        <form class="d-flex text-align-center" action="{{ url('/item/itemsearch') }}" method="get">
+                        <form class="d-flex text-align-center" action="{{ url('/items/itemsearch') }}" method="get">
                             <input class="search-window" type="text" name="search" placeholder="検索キーワード" value=''>
                             <button type="submit" class="search-button ms-4">検索</button>
                         </form>

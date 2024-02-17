@@ -47,6 +47,12 @@ Route::prefix('items')->group(function () {
     // 在庫持出
     Route::post('/{item}/take_out', 
     [App\Http\Controllers\ItemController::class, 'take_out']);
+    // 検索機能(管理)
+    Route::get('/itemsearch',
+    [App\Http\Controllers\ItemController::class, 'itemsearch']);
+    // 検索機能(ユーザー)
+    Route::get('/used_itemsearch',
+    [App\Http\Controllers\ItemController::class, 'used_itemsearch']);
 });
 
 Route::prefix('users')->group(function () {
