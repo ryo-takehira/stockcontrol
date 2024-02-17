@@ -182,7 +182,7 @@ class ItemController extends Controller
 
         Item::latest('updated_at')->paginate(6);
 
-        return redirect('/items/index')->with('success',$item['name'] . ' が削除されました。');
+        return redirect('/items')->with('success',$item['name'] . ' が削除されました。');
     }
 
 
@@ -267,7 +267,7 @@ class ItemController extends Controller
             Item::latest('updated_at')->paginate(6);
 
             // 商品管理画面へ
-            return redirect('/items/index')->with('success',$request['name'] . ' が更新されました。');
+            return redirect('/items')->with('success',$request['name'] . ' が更新されました。');
         }
 
         return view('item.edit', compact('item'));
@@ -287,13 +287,13 @@ class ItemController extends Controller
         // $itemlistのstockは$itemlistのstock足す$itemlistのorders
         $item->stock = $item->stock + $item->order_quantity;
 
-        // $itemlistを更新する
+        // $itemを更新する
         $item->save();
 
         Item::latest('updated_at')->paginate(6);
 
         // 更新後item一覧へ
-        return redirect('/items/index')->with('success', $item['name'] .' の在庫が入庫されました。');
+        return redirect('/items')->with('success', $item['name'] .' の在庫が入庫されました。');
 
     }
 
