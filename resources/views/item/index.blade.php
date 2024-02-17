@@ -6,7 +6,7 @@
 
 @section('content_header')
 <div class="d-flex">
-    <h5 class="titlename">備品管理</h5>
+    <h4 class="titlename">備品管理</h4>
 
     @if(session('success'))
     <div id="successMessage" class="custom-message">
@@ -170,7 +170,6 @@
     <!-- オリジナルstylecssファイル -->
     <link href="{{ asset('/css/item.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('/css/reset.css') }}" rel="stylesheet">
     @stop
 
     @section('js')

@@ -75,6 +75,38 @@ class UserController extends Controller
 
 
 
+        // ユーザー一覧検索(ユーザー画面)
+        public function usersearch(Request $request)
+        {
+            $users = User::all();
+    
+            $search = $request->input('usersearch');
+    
+            $query = User::query();
+    
+            // $query = $query->paginate($query->count());
+    
+            if (!empty($search)) {
+    
+                // 全角スペースを半角に変換
+                $spaceConversion = mb_convert_kana($search, 's');
+    
+                // 単語を半角スペースで区切り、配列にする（例："山田 翔" → ["山田", "翔"]）
+                $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
+    
+                // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
+                foreach ($wordArraySearched as $value) {
+    
+                    $query = User::where('name', 'like', '%' . $value . '%')
+                        ->orWhere('email', 'like', '%' . $value . '%');
+                }
+            }
+    
+            $users = $query->latest('updated_at')->paginate(10);
+    
+            return view('user.index', compact('users'));
+        }
+
 
 
 }

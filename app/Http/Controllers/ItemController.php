@@ -335,7 +335,7 @@ class ItemController extends Controller
 
 
 
-        // 備品一覧検索(ユーザー面)
+        // 備品一覧検索(ユーザー画面)
         public function used_itemsearch(Request $request)
         {
             $items = Item::all();

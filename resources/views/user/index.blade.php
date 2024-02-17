@@ -5,27 +5,32 @@
 @section('title', 'ユーザー管理')
 
 @section('content_header')
-    <div class="d-flex">
-    <h1 class="titlename">ユーザー管理</h1>
+<div class="d-flex">
+    <h5 class="titlename">ユーザー管理</h5>
     @if(session('success'))
     <div id="successMessage" class="custom-message">
         {{ session('success') }}
     </div>
     @endif
-    </div>
+</div>
 @stop
 
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">ユーザー管理</h3>
-
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <!-- 検索窓 -->
+                <div class="mb-2">
+                    <div class="d-flex">
+                        <form class="d-flex text-align-center" action="{{ url('/users/usersearch') }}" method="get">
+                            <input class="search-window" type="text" name="usersearch" placeholder="検索キーワード" value=''>
+                            <button type="submit" class="search-button ms-4">検索</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="table-responsive p-0">
                     <table class="table text-center text-nowrap">
-                    <colgroup span="2"></colgroup>
+                        <colgroup span="2"></colgroup>
                         <thead>
                             <tr>
                                 <th class="fixed02">ID</th>
@@ -39,14 +44,14 @@
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
-                                <tr>
-                                    <td class="align-middle">{{ $user->id }}</td>
-                                    <td class="align-middle fixed02">{{ $user->name }}</td>
-                                    <td class="align-middle">{{ $user->email }}</td>
-                                    <td class="align-middle">{{ $user->isAdmin }}</td>
-                                    <td class="align-middle">{{ $user->created_at}}</td>
-                                    <td class="align-middle">{{ $user->updated_at}}</td>
-                                    <div class="align-middle">
+                            <tr>
+                                <td class="align-middle">{{ $user->id }}</td>
+                                <td class="align-middle fixed02">{{ $user->name }}</td>
+                                <td class="align-middle">{{ $user->email }}</td>
+                                <td class="align-middle">{{ $user->isAdmin }}</td>
+                                <td class="align-middle">{{ $user->created_at}}</td>
+                                <td class="align-middle">{{ $user->updated_at}}</td>
+                                <div class="align-middle">
                                     <td class="align-middle">
                                         <!-- 編集ボタン -->
                                         <a href="{{ url('/users/'. $user->id .'/edit') }}" class="btn btn-warning">編集</a>
@@ -59,8 +64,8 @@
                                         </form>
                                     </td>
                                     <td class="align-middle">
-                                    </div>
-                                </tr>
+                                </div>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -79,8 +84,8 @@
     </div>
 
 
-        <!-- jquery読込 -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jquery読込 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             // ページロード後に実行されるコード
@@ -95,8 +100,8 @@
         });
     </script>
 
-        <!-- データ削除確認用ダイアログ -->
-        <script>
+    <!-- データ削除確認用ダイアログ -->
+    <script>
         $(function() {
             $(".btn-dell").click(function() {
                 if (confirm("本当に削除しますか？")) {
@@ -109,12 +114,12 @@
         });
     </script>
 
-@stop
+    @stop
 
-@section('css')
-<!-- オリジナルstylecssファイル -->
-<link href="{{ asset('/css/item.css') }}" rel="stylesheet">
-@stop
+    @section('css')
+    <!-- オリジナルstylecssファイル -->
+    <link href="{{ asset('/css/item.css') }}" rel="stylesheet">
+    @stop
 
-@section('js')
-@stop
+    @section('js')
+    @stop
