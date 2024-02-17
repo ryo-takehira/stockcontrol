@@ -93,7 +93,7 @@
 
                     <div class="form-group">
                         <label for="minimum_stock">最低在庫数</label>
-                        <input type="text" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数：{{ $item->minimum_stock }}" value="{{ $item->minimum_stock }}">
+                        <input type="number" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数：{{ $item->minimum_stock }}" value="{{ $item->minimum_stock }}">
                     </div>
 
                     <div class="form-group">
