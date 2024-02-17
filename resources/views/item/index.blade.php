@@ -4,7 +4,7 @@
 
 @section('title', '備品管理')
 
-@section('content_header')
+@section('content_header d-flex')
 <div class="d-flex">
     <h4 class="titlename">備品管理</h4>
 
