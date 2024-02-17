@@ -34,7 +34,7 @@
                         <div class="card-tools">
 
                             <div class="input-group-append">
-                                <a href="{{ url('items/add') }}" class="button">登録</a>
+                                <a href="{{ url('items/add') }}" class="button">備品登録</a>
                             </div>
                         </div>
                     </div>
