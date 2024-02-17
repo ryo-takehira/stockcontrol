@@ -246,7 +246,7 @@ td {
 }
 
 .button {
-    width: 85px;
+    width: 45px;
     margin: 0px 15px 0px 20px;
     height: 40px;
     font-weight: bold;
@@ -260,7 +260,7 @@ td {
 }
 
 .button:hover {
-    width: 85px;
+    width: 45px;
     margin: 0px 15px 0px 20px;
     height: 40px;
     font-weight: bold;
