@@ -53,6 +53,35 @@
 }
 
 
+/* 画面表示幅が500px以下だった時(全体のレスポンシブデザイン) */
+@media screen and (max-width: 500px) {
+
+    .custom-message {
+        margin: 0 0 0 30px;
+        height: 5vh;
+        width: auto;
+        background-color: #ffffff;
+        color: #000;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        padding: 0 10px 0 10px;
+    
+        /* 垂平方向真ん中に合わせ */
+        justify-content: center;
+        /* 垂直方向真ん中に合わせ */
+        align-items: center;
+        /* Flex container-fluidと、子要素Flex Itemになる。
+        Flex container-fluid内のアイテムは、主軸（横方向または縦方向）に沿って柔軟に配置できる */
+        display: flex;
+    
+        /* z-indexは値が大きいほど手前側に表示されます */
+        z-index: 999;
+    }
+    
+
+
+}
+
 /* エラーメッセージのスタイル */
 .custom-message-error {
 
@@ -183,4 +212,61 @@ td {
 
 .paginate_item{
     font-size: 20px;
+}
+
+
+/* 検索機能のスタイル */
+/* 検索窓 */
+.search-window {
+    width: 180px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.search-window:hover {
+    width: 180px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* 検索ボタン */
+.search-button {
+    width: 60px;
+    margin: 0px 15px 0px 20px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.search-button:hover {
+    margin: 0px 15px 0px 20px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.button {
+    width: 85px;
+    height: 35px;
+    font-weight: bold;
+
+    background-color: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    float: center;
+    padding: 10px;
+}
+
+.button:hover {
+    width: 85px;
+    height: 35px;
+    font-weight: bold;
+
+    background-color: #c0c0c0;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    float: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }

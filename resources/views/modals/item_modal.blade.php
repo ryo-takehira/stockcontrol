@@ -20,11 +20,11 @@
                                             <div class="overflow-auto" style="max-height: 200px;">
                                                 <p class="card-text">現在の在庫数: {{ $item->stock }}</p>
                                                 <p class="card-text">在庫単位: {{ $item->stock_unit }}</p>
-                                                <!-- 削除ボタン -->
+                                                <!-- 持出ボタン -->
                                                 <form action="/items/{{$item->id}}/take_out" method="POST">
                                                     <div class="form-group d-flex">
                                                         <label for="order_name" class="mr-3 mt-2">持出数量</label>
-                                                        <input type="integer" class="form-control" id="take_out" name="take_out" placeholder="〇{{ $item->stock_unit }}">
+                                                        <input type="number" class="form-control" id="take_out" name="take_out" required value="0" min="0" placeholder="〇{{ $item->stock_unit }}">
                                                     </div>
                                                         {{ csrf_field() }}
                                                         <input type="submit" value="持ち出す" class="btn btn-primary">

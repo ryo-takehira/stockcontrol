@@ -6,7 +6,7 @@
 
 @section('content_header')
     <div class="d-flex">
-    <h1 class="titlename">備品一覧</h1>
+    <h5 class="titlename">備品一覧</h5>
 
     @if(session('success'))
     <div id="successMessage" class="custom-message">
@@ -22,10 +22,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">備品一覧</h3>
+                <!-- 検索窓 -->
+                <div class="mt-2">
 
-
-                </div>
+                    <div class="d-flex">
+                        <form class="d-flex text-align-center" action="{{ url('/items/used_itemsearch') }}" method="get">
+                            <input class="search-window" type="text" name="used_search" placeholder="検索キーワード" value=''>
+                            <button type="submit" class="search-button ms-4">検索</button>
+                        </form>
+                    </div>
+                </div>                </div>
                 <div class="table-responsive p-0">
                     <table class="table text-center text-nowrap">
                         <thead>

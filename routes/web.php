@@ -47,8 +47,24 @@ Route::prefix('items')->group(function () {
     // 在庫持出
     Route::post('/{item}/take_out', 
     [App\Http\Controllers\ItemController::class, 'take_out']);
+    // 検索機能(管理)
+    Route::get('/itemsearch',
+    [App\Http\Controllers\ItemController::class, 'itemsearch']);
+    // 検索機能(ユーザー)
+    Route::get('/used_itemsearch',
+    [App\Http\Controllers\ItemController::class, 'used_itemsearch']);
 });
 
+Route::prefix('users')->group(function () {
+    // ユーザー一覧画面へ
+    Route::get('/', [App\Http\Controllers\UserController::class,'index']);
+    // データ削除
+    Route::post('/{user}/delete',[App\Http\Controllers\UserController::class,'delete']);
+    // 編集フォーム表示
+    Route::get('/{user}/edit',[App\Http\Controllers\UserController::class,'edit']);
+    // 編集実行
+    Route::post('/{user}/edit',[App\Http\Controllers\UserController::class,'edit']);
+});
 
 
 

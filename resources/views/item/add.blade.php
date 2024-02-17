@@ -31,13 +31,13 @@
                     <div class="form-group">
                         <label>部署</label>
                         <select class="form-control" name="type" id="type" placeholder="部署">
-                            <!-- <option value="事務">事務</option>
-                            <option value="CAD部">CAD</option>
-                            <option value="製造部">製造部</option> -->
                             <option value="" {{ old('type') == '' ? 'selected' : '' }}>>選択してください</option>
                             <option value="事務" {{ old('type') == '事務' ? 'selected' : '' }}>事務</option>
                             <option value="CAD部" {{ old('type') == 'CAD部' ? 'selected' : '' }}>CAD部</option>
-                            <option value="製造部" {{ old('type') == '製造部' ? 'selected' : '' }}>製造部</option>
+                            <option value="第一工場" {{ old('type') == '第一工場' ? 'selected' : '' }}>第一工場</option>
+                            <option value="第二工場" {{ old('type') == '第二工場' ? 'selected' : '' }}>第二工場</option>
+                            <option value="第三工場" {{ old('type') == '第三工場' ? 'selected' : '' }}>第三工場</option>
+                            <option value="第四工場" {{ old('type') == '第四工場' ? 'selected' : '' }}>第四工場</option>
                         </select>
                     </div>
 
@@ -128,7 +128,7 @@
 
                     <div class="form-group">
                         <label for="minimum_stock">最低在庫数</label>
-                        <input type="text" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数" value="{{ old('minimum_stock') }}">
+                        <input type="number" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数" value="{{ old('minimum_stock') }}">
                     </div>
 
                     <div class="form-group">

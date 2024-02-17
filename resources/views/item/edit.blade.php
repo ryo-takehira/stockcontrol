@@ -33,54 +33,16 @@
 
                     <div class="form-group">
                         <label>部署</label>
-                        <select class="form-control" name="type" id="type" value="{{ $item->type }}">
-                            {{ $item->type }}
-                            <option value="事務">事務</option>
-                            <option value="CAD">CAD</option>
-                            <option value="第一工場">第一工場</option>
-                            <option value="第二工場">第二工場</option>
-                            <option value="第三工場">第三工場</option>
-                            <option value="第四工場">第四工場</option>
+                        <select class="form-control" name="type" id="type">
+                            <option value="{{ $item->type }}" {{ old('type') == '' ? 'selected' : '' }}>{{ $item->type }}</option>
+                            <option value="事務" {{ old('type') == '事務' ? 'selected' : '' }}>事務</option>
+                            <option value="CAD" {{ old('type') == 'CAD' ? 'selected' : '' }}>CAD</option>
+                            <option value="第一工場" {{ old('type') == '第一工場' ? 'selected' : '' }}>第一工場</option>
+                            <option value="第二工場" {{ old('type') == '第二工場' ? 'selected' : '' }}>第二工場</option>
+                            <option value="第三工場" {{ old('type') == '第三工場' ? 'selected' : '' }}>第三工場</option>
+                            <option value="第四工場" {{ old('type') == '第四工場' ? 'selected' : '' }}>第四工場</option>
                         </select>
                     </div>
-
-
-                    <!-- <div class="form-group" role="group">
-                            <button type="button" class="form-control text-center custom-btn" data-bs-toggle="dropdown" aria-expanded="false" id="type">
-                                部署
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" data-value="事務">事務</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="CAD">CAD</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="第一工場">第一工場</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="第二工場">第二工場</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="第三工場">第三工場</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="第四工場">第四工場</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <input type="hidden" name="type" id="type_name" value="">
-
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            // ドロップダウンメニューのアイテムがクリックされたときのイベントリスナーを追加
-                            var dropdownItems = document.querySelectorAll('.dropdown-item');
-                            dropdownItems.forEach(function(item) {
-                                item.addEventListener('click', function(event) {
-                                    // クリックされたアイテムのdata-value属性の値を取得
-                                    var selectedValue = event.target.getAttribute('data-value');
-
-                                    // 選択された値を表示する要素にセット
-                                    document.getElementById('type').innerText = selectedValue;
-                                    document.getElementById('type_name').value = selectedValue;
-
-                                    // ここで選択された値に基づく他のアクションを実行することができます
-
-                                });
-                            });
-                        });
-                    </script> -->
 
                     <div class="form-group">
                         <label for="image_name">画像</label><br>
@@ -131,7 +93,7 @@
 
                     <div class="form-group">
                         <label for="minimum_stock">最低在庫数</label>
-                        <input type="text" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数：{{ $item->minimum_stock }}" value="{{ $item->minimum_stock }}">
+                        <input type="number" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数：{{ $item->minimum_stock }}" value="{{ $item->minimum_stock }}">
                     </div>
 
                     <div class="form-group">
