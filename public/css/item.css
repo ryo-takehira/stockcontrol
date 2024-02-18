@@ -233,13 +233,13 @@ td {
 /* 検索ボタン */
 .search-button {
     width: 60px;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 0px 0px 10px;
     height: 40px;
     border-radius: 5px;
 }
 
 .search-button:hover {
-    margin: 0px 10px 0px 10px;
+    margin: 0px 0px 0px 10px;
     height: 40px;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
@@ -247,7 +247,7 @@ td {
 
 .button {
     width: 85px;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 10px 0px 0px;
     height: 40px;
     font-weight: bold;
 
@@ -261,7 +261,7 @@ td {
 
 .button:hover {
     width: 85px;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 10px 0px 0px;
     height: 40px;
     font-weight: bold;
 
