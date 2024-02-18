@@ -23,7 +23,7 @@ class YourValidationRequest extends FormRequest
     {
         return [
             //
-            'input_take_out' => 'required|integer|max:3',
+            // 'input_take_out' => 'required|integer|max:3',
         ];
     }
 }

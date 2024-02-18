@@ -64,6 +64,9 @@ Route::prefix('users')->group(function () {
     Route::get('/{user}/edit',[App\Http\Controllers\UserController::class,'edit']);
     // 編集実行
     Route::post('/{user}/edit',[App\Http\Controllers\UserController::class,'edit']);
+    // 検索機能(ユーザー管理)
+    Route::get('/usersearch',
+    [App\Http\Controllers\UserController::class, 'usersearch']);
 });
 
 

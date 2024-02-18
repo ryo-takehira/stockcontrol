@@ -218,13 +218,13 @@ td {
 /* 検索機能のスタイル */
 /* 検索窓 */
 .search-window {
-    width: 180px;
+    width: 160px;
     height: 40px;
     border-radius: 5px;
 }
 
 .search-window:hover {
-    width: 180px;
+    width: 160px;
     height: 40px;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
@@ -232,14 +232,14 @@ td {
 
 /* 検索ボタン */
 .search-button {
-    width: 60px;
-    margin: 0px 15px 0px 20px;
+    width: 70px;
+    margin: 0px 0px 0px 5px;
     height: 40px;
     border-radius: 5px;
 }
 
 .search-button:hover {
-    margin: 0px 15px 0px 20px;
+    margin: 0px 0px 0px 5px;
     height: 40px;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
@@ -247,7 +247,8 @@ td {
 
 .button {
     width: 85px;
-    height: 35px;
+    margin: 0px 5px 0px 5px;
+    height: 40px;
     font-weight: bold;
 
     background-color: #000;
@@ -260,7 +261,8 @@ td {
 
 .button:hover {
     width: 85px;
-    height: 35px;
+    margin: 0px 5px 0px 5px;
+    height: 40px;
     font-weight: bold;
 
     background-color: #c0c0c0;

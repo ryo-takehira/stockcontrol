@@ -33,7 +33,7 @@
                         <select class="form-control" name="type" id="type" placeholder="部署">
                             <option value="" {{ old('type') == '' ? 'selected' : '' }}>>選択してください</option>
                             <option value="事務" {{ old('type') == '事務' ? 'selected' : '' }}>事務</option>
-                            <option value="CAD部" {{ old('type') == 'CAD部' ? 'selected' : '' }}>CAD部</option>
+                            <option value="CAD部" {{ old('type') == 'CAD' ? 'selected' : '' }}>CAD</option>
                             <option value="第一工場" {{ old('type') == '第一工場' ? 'selected' : '' }}>第一工場</option>
                             <option value="第二工場" {{ old('type') == '第二工場' ? 'selected' : '' }}>第二工場</option>
                             <option value="第三工場" {{ old('type') == '第三工場' ? 'selected' : '' }}>第三工場</option>

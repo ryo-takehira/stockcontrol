@@ -7,6 +7,8 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
+use Illuminate\Support\Facades\Auth;
+
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -32,7 +34,22 @@ class EventServiceProvider extends ServiceProvider
                 // adminlte menuのキー(menu1_admin_only)で管理メニューを消す
                 $event->menu->remove('menu1_admin_only');
                 $event->menu->remove('menu2_admin_only');
+
             }
+            
+            if(auth()->user()->isAdmin == null){
+                // return redirect('/');
+                // dd($this->middleware('guest')->except('logout'));
+                // $this->middleware('guest')->except('logout');
+                Auth::logout();
+
+                session()->invalidate();
+            
+                session()->regenerateToken();
+            
+                return redirect('/');
+            }
+
         });
     }
 
