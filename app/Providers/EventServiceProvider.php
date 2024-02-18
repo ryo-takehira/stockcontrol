@@ -36,7 +36,13 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('menu2_admin_only');
 
             }
-            
+
+
+            if (auth()->user()->isAdmin != 2){
+                // adminlte menuのキー(menu2_admin_only)で管理メニューを消す                $event->menu->remove('menu2_admin_only');
+            }
+
+
             if(auth()->user()->isAdmin == null){
                 // return redirect('/');
                 // dd($this->middleware('guest')->except('logout'));
