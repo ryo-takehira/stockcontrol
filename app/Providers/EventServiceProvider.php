@@ -28,6 +28,21 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+if(auth()->user()->isAdmin == null){
+                // return redirect('/');
+                // dd($this->middleware('guest')->except('logout'));
+                // $this->middleware('guest')->except('logout');
+                Auth::logout();
+
+                session()->invalidate();
+            
+                session()->regenerateToken();
+            
+                return redirect('/');
+            }
+
+
         // isAdmin(role)が10の場合、管理メニューを消す
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
             if (auth()->user()->isAdmin == 10){
@@ -44,18 +59,7 @@ $event->menu->remove('menu2_admin_only');
             }
 
 
-            if(auth()->user()->isAdmin == null){
-                // return redirect('/');
-                // dd($this->middleware('guest')->except('logout'));
-                // $this->middleware('guest')->except('logout');
-                Auth::logout();
-
-                session()->invalidate();
             
-                session()->regenerateToken();
-            
-                return redirect('/');
-            }
 
         });
     }
