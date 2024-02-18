@@ -218,13 +218,13 @@ td {
 /* 検索機能のスタイル */
 /* 検索窓 */
 .search-window {
-    width: 180px;
+    width: 160px;
     height: 40px;
     border-radius: 5px;
 }
 
 .search-window:hover {
-    width: 180px;
+    width: 160px;
     height: 40px;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
