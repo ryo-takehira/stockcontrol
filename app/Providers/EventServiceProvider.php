@@ -7,6 +7,7 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
+use Illuminate\Support\Facades\Auth;
 
 
 class EventServiceProvider extends ServiceProvider
@@ -34,11 +35,21 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->remove('menu1_admin_only');
                 $event->menu->remove('menu2_admin_only');
 
-            // ここから検証
-            }elseif(auth()->user()->isAdmin == null){
-                return redirect('/');
             }
             
+            if(auth()->user()->isAdmin == null){
+                // return redirect('/');
+                // dd($this->middleware('guest')->except('logout'));
+                // $this->middleware('guest')->except('logout');
+                Auth::logout();
+
+                session()->invalidate();
+            
+                session()->regenerateToken();
+            
+                return redirect('/');
+            }
+
         });
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -14,11 +15,21 @@ class UserController extends Controller
     public function index(User $user)
     {
 
+				// ②ログイン中のユーザーを取得
+                // dd(Auth::user()->isAdmin);
+                // $auth_user = Auth::user()->isAdmin;
+
+                $auth_user = Auth::user();
+
+                // dd($auth_user);
+
                 // modelのUserから全てのデータを受け取る
                 $users = User::paginate(6);
                 // viewのItemにデータを受け渡す
 
-        return view('user.index', compact('users'));
+                // dd(compact('users','auth_user'));
+
+        return view('user.index', compact('users','auth_user'));
     }
 
             /**
