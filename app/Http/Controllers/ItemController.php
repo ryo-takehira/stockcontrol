@@ -46,7 +46,7 @@ class ItemController extends Controller
     }
 
     /**
-     * 備品持出モーダルへ移動
+     * 備品持出モーダルへ移動後、持出処理
      */
     public function take_out(Request $request, $id)
     {

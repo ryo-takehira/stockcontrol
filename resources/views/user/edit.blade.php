@@ -35,6 +35,7 @@
                         <label>権限</label>
                         <select class="form-control" name="isAdmin" id="isAdmin" value="{{ $user->isAdmin }}">
                             {{ $user->isAdmin }}
+                            <option value="{{ $user->isAdmin }}" {{ old('isAdmin') == '' ? 'selected' : '' }}>{{ $user->isAdmin }}</option>
                             <option value="10">10</option>
                             <option value="1">1</option>
                             <option value="2">2</option>

@@ -15,6 +15,16 @@
     </div>
     @endif
 </div>
+
+<!-- 在庫チェック -->
+@foreach ($items as $item)
+@if($item->stock < $item->minimum_stock)
+<div>
+    <p style="color:red; font-weight:bold;">【 {{ $item->name}} 】の在庫が最低在庫数に達しています</p><br>
+</div>
+@endif
+@endforeach
+
 @stop
 
 @section('content')
