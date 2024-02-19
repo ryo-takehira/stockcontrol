@@ -45,7 +45,19 @@ class UserController extends Controller
 
         User::latest('updated_at')->paginate(6);
 
-        return redirect('/users/index')->with('success',$user['name'] . ' が削除されました。');
+        $auth_user = Auth::user();
+
+        // dd($auth_user);
+
+        // modelのUserから全てのデータを受け取る
+        $users = User::paginate(6);
+        // viewのItemにデータを受け渡す
+
+        // dd(compact('users','auth_user'));
+
+        return view('user.index', compact('users','auth_user'))->with('success',$user['name'] . ' が削除されました。');
+
+        // return redirect('/users/index')->with('success',$user['name'] . ' が削除されました。');
     }
 
 
@@ -75,10 +87,17 @@ class UserController extends Controller
 
             $user->where('id', $user_id)->update($userupdate);
 
-            $users=User::paginate(6);
+            $auth_user = Auth::user();
 
-            // ユーザー管理画面へ
-            return view('user.index', compact('users'));
+            // dd($auth_user);
+
+            // modelのUserから全てのデータを受け取る
+            $users = User::paginate(6);
+            // viewのItemにデータを受け渡す
+
+            // dd(compact('users','auth_user'));
+
+    return view('user.index', compact('users','auth_user'));
         }
 
         return view('user.edit', compact('user'));
@@ -115,7 +134,17 @@ class UserController extends Controller
     
             $users = $query->latest('updated_at')->paginate(10);
     
-            return view('user.index', compact('users'));
+            $auth_user = Auth::user();
+
+            // dd($auth_user);
+
+            // modelのUserから全てのデータを受け取る
+            // $users = User::paginate(6);
+            // viewのItemにデータを受け渡す
+
+            // dd(compact('users','auth_user'));
+
+    return view('user.index', compact('users','auth_user'));
         }
 
 

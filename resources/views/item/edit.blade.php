@@ -35,6 +35,7 @@
                         <label>部署</label>
                         <select class="form-control" name="type" id="type">
                             <option value="{{ $item->type }}" {{ old('type') == '' ? 'selected' : '' }}>{{ $item->type }}</option>
+                            <option value="営業" {{ old('type') == '営業' ? 'selected' : '' }}>営業</option>
                             <option value="事務" {{ old('type') == '事務' ? 'selected' : '' }}>事務</option>
                             <option value="CAD" {{ old('type') == 'CAD' ? 'selected' : '' }}>CAD</option>
                             <option value="第一工場" {{ old('type') == '第一工場' ? 'selected' : '' }}>第一工場</option>
@@ -62,7 +63,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="model_no">型番</label>
+                        <label for="model_no">型番・品番</label>
                         <input type="text" class="form-control" id="model_no" name="model_no" placeholder="型番：{{ $item->model_no }}" value="{{ $item->model_no }}">
                     </div>
 

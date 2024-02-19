@@ -10,6 +10,7 @@ use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 use Illuminate\Support\Facades\Auth;
 
 
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -28,27 +29,60 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+// if(auth()->user()->isAdmin == null){
+//                 // return redirect('/');
+//                 // dd($this->middleware('guest')->except('logout'));
+//                 // $this->middleware('guest')->except('logout');
+//                 Auth::logout();
+
+//                 session()->invalidate();
+            
+//                 session()->regenerateToken();
+            
+                
+//             }
+
+
+// if(auth()->user()->id == null){
+//                 // return redirect('/');
+//                 // dd($this->middleware('guest')->except('logout'));
+//                 // $this->middleware('guest')->except('logout');
+//                 Auth::logout();
+
+//                 session()->invalidate();
+            
+//                 session()->regenerateToken();
+            
+                
+//             }
+
+
+
         // isAdmin(role)が10の場合、管理メニューを消す
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
+
+            if(auth()->user() == null){
+                return ;
+            }
+
+
             if (auth()->user()->isAdmin == 10){
                 // adminlte menuのキー(menu1_admin_only)で管理メニューを消す
                 $event->menu->remove('menu1_admin_only');
                 $event->menu->remove('menu2_admin_only');
 
             }
-            
-            if(auth()->user()->isAdmin == null){
-                // return redirect('/');
-                // dd($this->middleware('guest')->except('logout'));
-                // $this->middleware('guest')->except('logout');
-                Auth::logout();
 
-                session()->invalidate();
-            
-                session()->regenerateToken();
-            
-                return redirect('/');
+            if (auth()->user()->isAdmin != 1){
+                // adminlte menuのキー
+                // (menu2_admin_only)で管理メニューを消す                
+
+                $event->menu->remove('menu2_admin_only');
             }
+
+
+            
 
         });
     }
