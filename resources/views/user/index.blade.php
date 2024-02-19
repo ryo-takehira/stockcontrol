@@ -36,6 +36,7 @@
                             <th class="fixed02">ID</th>
                             <th class="fixed01">ユーザー名</th>
                             <th class="fixed02">メールアドレス</th>
+                            <th class="fixed02">所属部署</th>
                             <th class="fixed02">権限</th>
                             <th class="fixed02">登録日時</th>
                             <th class="fixed02">更新日時</th>
@@ -48,6 +49,7 @@
                             <td class="align-middle">{{ $user->id }}</td>
                             <td class="align-middle fixed02">{{ $user->name }}</td>
                             <td class="align-middle">{{ $user->email }}</td>
+                            <td class="align-middle">{{ $user->user_type }}</td>
 
                             <!-- 管理者権限条件分岐 -->
                             @if($user->isAdmin==10)
@@ -61,13 +63,13 @@
                             @elseif($user->isAdmin==4)
                             <td class="align-middle">CAD</td>
                             @elseif($user->isAdmin==5)
-                            <td class="align-middle">第１工場</td>
+                            <td class="align-middle">第一工場</td>
                             @elseif($user->isAdmin==6)
-                            <td class="align-middle">第２工場</td>
+                            <td class="align-middle">第二工場</td>
                             @elseif($user->isAdmin==7)
-                            <td class="align-middle">第３工場</td>
+                            <td class="align-middle">第三工場</td>
                             @elseif($user->isAdmin==8)
-                            <td class="align-middle">第４工場</td>
+                            <td class="align-middle">第四工場</td>
                             @endif
 
                             <td class="align-middle">{{ $user->created_at}}</td>

@@ -78,11 +78,13 @@ class UserController extends Controller
 
             $userupdate = $request->validate([
                 'name' => 'required|max:100',
+                'user_type' => 'required',
                 'isAdmin' => 'required',
             ],
             [
                 'name.required' => 'ユーザー名は必須です。',
-                'isAdmin.required' => 'ユーザー管理を選択してください。',
+                'user_type.required' => '所属部署を選択してください。',
+                'isAdmin.required' => 'ユーザー権限を選択してください。',
             ]);
 
             $user->where('id', $user_id)->update($userupdate);
@@ -128,7 +130,8 @@ class UserController extends Controller
                 foreach ($wordArraySearched as $value) {
     
                     $query = User::where('name', 'like', '%' . $value . '%')
-                        ->orWhere('email', 'like', '%' . $value . '%');
+                        ->orWhere('email', 'like', '%' . $value . '%')
+                        ->orWhere('user_type', 'like', '%' . $value . '%');
                 }
             }
     

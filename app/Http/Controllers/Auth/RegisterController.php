@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'user_type' => ['required'],
         ]);
     }
 
@@ -64,8 +65,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // 管理者はisAdmin=2
-        $admin=2;
+        // 管理者はisAdmin=1
+        $admin=1;
         
         // Useのレコードがなかった場合一般ユーザーとしてisAdminに値を10でセット
         if(User::count()){ $admin=10;}
@@ -74,6 +75,7 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'isAdmin' => $admin,
+                'user_type' => $data['user_type'],
             ]);
     }
 }
