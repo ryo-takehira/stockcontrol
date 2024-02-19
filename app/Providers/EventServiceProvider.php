@@ -30,32 +30,32 @@ class EventServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-if(auth()->user()->isAdmin == null){
-                // return redirect('/');
-                // dd($this->middleware('guest')->except('logout'));
-                // $this->middleware('guest')->except('logout');
-                Auth::logout();
+// if(auth()->user()->isAdmin == null){
+//                 // return redirect('/');
+//                 // dd($this->middleware('guest')->except('logout'));
+//                 // $this->middleware('guest')->except('logout');
+//                 Auth::logout();
 
-                session()->invalidate();
+//                 session()->invalidate();
             
-                session()->regenerateToken();
-            
-                
-            }
-
-
-if(auth()->user()->id == null){
-                // return redirect('/');
-                // dd($this->middleware('guest')->except('logout'));
-                // $this->middleware('guest')->except('logout');
-                Auth::logout();
-
-                session()->invalidate();
-            
-                session()->regenerateToken();
+//                 session()->regenerateToken();
             
                 
-            }
+//             }
+
+
+// if(auth()->user()->id == null){
+//                 // return redirect('/');
+//                 // dd($this->middleware('guest')->except('logout'));
+//                 // $this->middleware('guest')->except('logout');
+//                 Auth::logout();
+
+//                 session()->invalidate();
+            
+//                 session()->regenerateToken();
+            
+                
+//             }
 
 
 
