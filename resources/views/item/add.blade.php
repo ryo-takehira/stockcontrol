@@ -35,10 +35,10 @@
                             <option value="営業" {{ old('type') == '営業' ? 'selected' : '' }}>営業</option>
                             <option value="事務" {{ old('type') == '事務' ? 'selected' : '' }}>事務</option>
                             <option value="CAD" {{ old('type') == 'CAD' ? 'selected' : '' }}>CAD</option>
-                            <option value="第１工場" {{ old('type') == '第一工場' ? 'selected' : '' }}>第１工場</option>
-                            <option value="第２工場" {{ old('type') == '第二工場' ? 'selected' : '' }}>第２工場</option>
-                            <option value="第３工場" {{ old('type') == '第三工場' ? 'selected' : '' }}>第３工場</option>
-                            <option value="第４工場" {{ old('type') == '第四工場' ? 'selected' : '' }}>第４工場</option>
+                            <option value="第１工場" {{ old('type') == '第１工場' ? 'selected' : '' }}>第１工場</option>
+                            <option value="第２工場" {{ old('type') == '第２工場' ? 'selected' : '' }}>第２工場</option>
+                            <option value="第３工場" {{ old('type') == '第３工場' ? 'selected' : '' }}>第３工場</option>
+                            <option value="第４工場" {{ old('type') == '第４工場' ? 'selected' : '' }}>第４工場</option>
                         </select>
                     </div>
 
