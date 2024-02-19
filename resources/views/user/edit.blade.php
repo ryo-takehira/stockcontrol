@@ -33,13 +33,12 @@
 
                     <div class="form-group">
                         <label>権限</label>
-                        <select class="form-control" name="isAdmin" id="isAdmin" value="{{ $user->isAdmin }}">
-                            {{ $user->isAdmin }}
-                            <option value="{{ $user->isAdmin }}" {{ old('isAdmin') == '' ? 'selected' : '' }}>{{ $user->isAdmin }}</option>
-                            <option value="10">10</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                        <select class="form-control" name="isAdmin" id="isAdmin">
+                            <!-- <option value="{{ $user->isAdmin }}" {{ old('isAdmin') == '' ? 'selected' : '' }}>{{ $user->isAdmin }}</option> -->
+                            <option value="10" {{ $user->isAdmin == 10 ? 'selected' : '' }}>一般ユーザー</option>
+                            <option value="1" {{ $user->isAdmin == 1 ? 'selected' : '' }}>備品管理者</option>
+                            <option value="2" {{ $user->isAdmin == 2 ? 'selected' : '' }}>master</option>
+                            <option value="3" {{ $user->isAdmin == 3 ? 'selected' : '' }}>備品管理者</option>
                         </select>
                     </div>
                 </div>

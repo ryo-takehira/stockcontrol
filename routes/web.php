@@ -21,7 +21,10 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('items')->group(function () {
+// ->middleware(['auth'])   ログインしていたら  ->group(function ()へ実行
+// 中身はKernel.php内の    
+// protected $middlewareAliases = ['auth' => \App\Http\Middleware\Authenticate::class,]
+Route::prefix('items')->middleware(['auth'])->group(function () {
     // 管理画面へ
     Route::get('/index', [App\Http\Controllers\ItemController::class, 'index']);
     // 一覧画面へ
@@ -55,7 +58,8 @@ Route::prefix('items')->group(function () {
     [App\Http\Controllers\ItemController::class, 'used_itemsearch']);
 });
 
-Route::prefix('users')->group(function () {
+// ->middleware(['auth'])   ログインしていたら  ->group(function ()へ実行
+Route::prefix('users')->middleware(['auth'])->group(function () {
     // ユーザー一覧画面へ
     Route::get('/', [App\Http\Controllers\UserController::class,'index']);
     // データ削除
