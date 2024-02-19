@@ -10,6 +10,7 @@ use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 use Illuminate\Support\Facades\Auth;
 
 
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
