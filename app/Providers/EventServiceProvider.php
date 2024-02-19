@@ -40,7 +40,7 @@ if(auth()->user()->isAdmin == null){
             
                 session()->regenerateToken();
             
-                return redirect('/');
+                
             }
 
 
@@ -54,7 +54,7 @@ if(auth()->user()->id == null){
             
                 session()->regenerateToken();
             
-                return redirect('/');
+                
             }
 
 
