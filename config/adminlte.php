@@ -293,7 +293,6 @@ return [
     'menu' => [
         [
             'text'       => '備品一覧',
-            'icon_color' => 'red',
             'url'        => 'items',
             'icon' => 'fas fa-list-ol',
         ],
@@ -308,7 +307,6 @@ return [
             // 管理権限キー 'key'  => 'menu1_admin_only', EventServiceProviderへ
             'key'  => 'menu2_admin_only',
             'text' => 'ユーザー管理',
-            'icon_color' => 'blue',
             'url'  => 'users',
             'icon' => 'fas fa-users-cog',
         ],
