@@ -48,7 +48,28 @@
                             <td class="align-middle">{{ $user->id }}</td>
                             <td class="align-middle fixed02">{{ $user->name }}</td>
                             <td class="align-middle">{{ $user->email }}</td>
-                            <td class="align-middle">{{ $user->isAdmin }}</td>
+
+                            <!-- 管理者権限条件分岐 -->
+                            @if($user->isAdmin==10)
+                            <td class="align-middle"></td>
+                            @elseif($user->isAdmin==1)
+                            <td class="align-middle">master</td>
+                            @elseif($user->isAdmin==2)
+                            <td class="align-middle">営業</td>
+                            @elseif($user->isAdmin==3)
+                            <td class="align-middle">事務</td>
+                            @elseif($user->isAdmin==4)
+                            <td class="align-middle">CAD</td>
+                            @elseif($user->isAdmin==5)
+                            <td class="align-middle">第１工場</td>
+                            @elseif($user->isAdmin==6)
+                            <td class="align-middle">第２工場</td>
+                            @elseif($user->isAdmin==7)
+                            <td class="align-middle">第３工場</td>
+                            @elseif($user->isAdmin==8)
+                            <td class="align-middle">第４工場</td>
+                            @endif
+
                             <td class="align-middle">{{ $user->created_at}}</td>
                             <td class="align-middle">{{ $user->updated_at}}</td>
 

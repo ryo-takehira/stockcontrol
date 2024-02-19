@@ -36,9 +36,14 @@
                         <select class="form-control" name="isAdmin" id="isAdmin">
                             <!-- <option value="{{ $user->isAdmin }}" {{ old('isAdmin') == '' ? 'selected' : '' }}>{{ $user->isAdmin }}</option> -->
                             <option value="10" {{ $user->isAdmin == 10 ? 'selected' : '' }}>一般ユーザー</option>
-                            <option value="1" {{ $user->isAdmin == 1 ? 'selected' : '' }}>備品管理者</option>
-                            <option value="2" {{ $user->isAdmin == 2 ? 'selected' : '' }}>master</option>
-                            <option value="3" {{ $user->isAdmin == 3 ? 'selected' : '' }}>備品管理者</option>
+                            <option value="1" {{ $user->isAdmin == 1 ? 'selected' : '' }}>master</option>
+                            <option value="2" {{ $user->isAdmin == 2 ? 'selected' : '' }}>営業</option>
+                            <option value="3" {{ $user->isAdmin == 3 ? 'selected' : '' }}>事務</option>
+                            <option value="4" {{ $user->isAdmin == 4 ? 'selected' : '' }}>CAD</option>
+                            <option value="5" {{ $user->isAdmin == 5 ? 'selected' : '' }}>第１工場</option>
+                            <option value="6" {{ $user->isAdmin == 6 ? 'selected' : '' }}>第２工場</option>
+                            <option value="7" {{ $user->isAdmin == 7 ? 'selected' : '' }}>第３工場</option>
+                            <option value="8" {{ $user->isAdmin == 8 ? 'selected' : '' }}>第４工場</option>
                         </select>
                     </div>
                 </div>

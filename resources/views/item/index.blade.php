@@ -58,7 +58,7 @@
                                 <th class="fixed01">備品名</th>
                                 <th class="fixed02">部署</th>
                                 <th class="fixed02">画像</th>
-                                <th class="fixed02">型番</th>
+                                <th class="fixed02">型番・品番</th>
                                 <th class="fixed02">発注先</th>
                                 <th class="fixed02">発注先担当者</th>
                                 <th class="fixed02">発注先電話番号</th>
