@@ -64,7 +64,7 @@
 
                     <div class="form-group">
                         <label for="model_no">型番・品番</label>
-                        <input type="text" class="form-control" id="model_no" name="model_no" placeholder="型番：{{ $item->model_no }}" value="{{ $item->model_no }}">
+                        <input type="text" class="form-control" id="model_no" name="model_no" placeholder="型番・品番：{{ $item->model_no }}" value="{{ $item->model_no }}">
                     </div>
 
                     <div class="form-group">
