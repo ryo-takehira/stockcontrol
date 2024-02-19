@@ -295,14 +295,14 @@ return [
             'text'       => '備品一覧',
             'icon_color' => 'red',
             'url'        => 'items',
-            'icon' => 'fas fa-gamepad',
+            'icon' => 'fas fa-list-ol',
         ],
         [
             // 管理権限キー 'key'  => 'menu1_admin_only', EventServiceProviderへ
             'key'  => 'menu1_admin_only',
             'text' => '備品管理',
             'url'  => 'items/index',
-            'icon' => 'fas fa-gamepad',
+            'icon' => 'fab fa-jenkins',
         ],
         [
             // 管理権限キー 'key'  => 'menu1_admin_only', EventServiceProviderへ
