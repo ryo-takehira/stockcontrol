@@ -310,7 +310,7 @@ return [
             'text' => 'ユーザー管理',
             'icon_color' => 'blue',
             'url'  => 'users',
-            'icon' => 'fas fa-gamepad',
+            'icon' => 'fas fa-users-cog',
         ],
 
         [
