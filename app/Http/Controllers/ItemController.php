@@ -90,7 +90,7 @@ class ItemController extends Controller
                     'model_no' => 'required|max:100',
                     'order_name' => 'required|max:15',
                     'order_person' => 'required|max:100',
-                    'order_phone' => 'required|regex:/^0[7-9]0\d{8}$/',
+                    'order_phone' => ['required','regex:/^0[7-9]0\d{8}$|^0\d{9}$/'],
                     'stock_unit' => 'required|max:50',
                     'stock' => 'required|integer',
                     'minimum_stock' => 'required|integer',
