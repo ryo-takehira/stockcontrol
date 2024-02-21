@@ -48,18 +48,30 @@
                     <div class="form-group">
                         <label for="image_name">画像</label><br>
 
-                        <input type="file" name="image_name" id="imageElem" multiple accept="image/*" style="display:none" value="{{ $item->image_name }}" />
-                        <button id="imageSelect" type="button">画像を選択</button>
+                        <input type="file" name="image_name" id="imageSelect" accept="image/*" multiple accept="image/*" value="{{ $item->image_name }}" />
+
+                        <img id="selectedImage" style="max-width: 100%; max-height: 300px;">
+
                         <script>
                             const imageSelect = document.getElementById("imageSelect");
-                            const imageElem = document.getElementById("imageElem");
+                            const selectedImage = document.getElementById("selectedImage");
 
-                            imageSelect.addEventListener("click", (e) => {
-                                if (imageElem) {
-                                    imageElem.click();
+                            imageSelect.addEventListener("change", (e) => {
+                                const file = e.target.files[0];
+
+                                if (file) {
+                                    const reader = new FileReader();
+
+                                    reader.onload = (event) => {
+                                        selectedImage.src = event.target.result;
+                                        selectedImage.style.display = "block";
+                                    };
+
+                                    reader.readAsDataURL(file);
                                 }
-                            }, false);
+                            });
                         </script>
+
                     </div>
 
                     <div class="form-group">
