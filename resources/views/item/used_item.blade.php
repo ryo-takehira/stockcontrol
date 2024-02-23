@@ -32,11 +32,13 @@
                 <div class="card-header">
                     <!-- 検索窓 -->
                     <div class="mb-2">
-                        <div class="d-flex">
-                            <form class="d-flex text-align-center" action="{{ url('/items/used_itemsearch') }}" method="get">
-                                <input class="search-window" type="text" name="used_search" placeholder="検索キーワード" value=''>
-                                <button type="submit" class="search-button ms-4">検索</button>
-                            </form>
+                        <div class="input-group input-group-sm">
+                            <div class="d-flex">
+                                <form class="d-flex text-align-center" action="{{ url('/items/used_itemsearch') }}" method="get">
+                                    <input class="search-window" type="text" name="used_search" placeholder="検索キーワード" value=''>
+                                    <button type="submit" class="search-button ms-4">検索</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <div class="table-responsive p-0">
@@ -115,8 +117,12 @@
     @stop
 
     @section('css')
+
+    <link href="{{ asset('/css/reset.css') }}" rel="stylesheet">
+
     <!-- オリジナルstylecssファイル -->
     <link href="{{ asset('/css/item.css') }}" rel="stylesheet">
+    
     @stop
 
     @section('js')
