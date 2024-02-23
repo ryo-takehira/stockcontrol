@@ -80,7 +80,7 @@
                                     <td class="align-middle">
                                         <div style="width:100px;"><img src="{!! $item->image_name !!}" alt="IMAGE" style="width:100%; height:50%;"></div>
                                     </td>
-                                    <td class="align-middle">{{ $item->model_no }}</td>
+                                    <td class="align-middle model_no-column">{{ $item->model_no }}</td>
                                     <td class="align-middle">{{ $item->order_name}}</td>
                                     <td class="align-middle">{{ $item->order_person}}</td>
                                     <td class="align-middle">{{ $item->order_phone}}</td>

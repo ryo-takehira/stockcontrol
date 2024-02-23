@@ -64,7 +64,7 @@
                                     <td class="align-middle">
                                         <div style="width:100px;"><img src="{!! $item->image_name !!}" alt="IMAGE" style="width:100%; height:50%;"></div>
                                     </td>
-                                    <td class="align-middle">{{ $item->model_no }}</td>
+                                    <td class="align-middle model_no-column">{{ $item->model_no }}</td>
                                     <td class="align-middle">{{ $item->stock_unit}}</td>
                                     <td class="align-middle">{{ $item->stock}}</td>
                                     <td class="align-middle">{{ $item->minimum_stock}}</td>
