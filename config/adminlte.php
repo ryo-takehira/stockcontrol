@@ -65,7 +65,7 @@ return [
 
     'logo' => '<b>備品管理</b>',
     // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img' => 'vendor/adminlte/dist/img/86306736-ユーザー管理アイコン。.jpg',
+    'logo_img' => 'vendor/adminlte/dist/img/社長のアイコン.jpeg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -110,7 +110,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/86306736-ユーザー管理アイコン。.jpg',
+            'path' => 'vendor/adminlte/dist/img/社長のアイコン.jpeg',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
