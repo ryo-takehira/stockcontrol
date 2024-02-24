@@ -66,11 +66,11 @@ class ItemController extends Controller
 
         $model->update(['stock' => $model->stock - $used_quantity,]);
 
-        if ($model->stock < $model->minimum_stock) {
+        // if ($model->stock < $model->minimum_stock) {
             // ②メール送信に使うインスタンスを生成
-            $NotificationEmail = new NotificationEmail();
+            // $NotificationEmail = new NotificationEmail();
             // ③メール送信
-            Mail::send($NotificationEmail);
+            // Mail::send($NotificationEmail);
 
             // // ⑤送信成功か確認
             // if (count(Mail::failures()) > 0) {
@@ -84,7 +84,7 @@ class ItemController extends Controller
             //     // 別のページに遷移する
             //     return redirect()->route('hoge')->with(compact('messages'));
             // }
-        }
+        // }
 
         // modelのItemから全てのデータを受け取る
         $items = Item::paginate(6);
