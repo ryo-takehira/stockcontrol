@@ -48,9 +48,9 @@
                     <div class="form-group">
                         <label for="image_name">画像</label><br>
 
-                        <input type="file" name="image_name" id="imageSelect" accept="image/*" multiple accept="image/*" value="{{ $item->image_name }}" />
+                        <input type="file" name="image_name" id="imageSelect" accept="image/*" multiple accept="image/*" value="{{ $item->image_name }}" /><br>
 
-                        <img id="selectedImage" style="max-width: 100%; max-height: 300px;">
+                        <img src="{{ $item->image_name }}" id="selectedImage" style="max-width: 100%; max-height: 300px;">
 
                         <script>
                             const imageSelect = document.getElementById("imageSelect");
