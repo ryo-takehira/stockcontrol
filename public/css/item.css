@@ -147,8 +147,6 @@
     width: 100%;
 }
 
-
-
 .table-wrap {
     overflow-x: scroll;
     overflow-y: scroll;
@@ -271,4 +269,19 @@ td {
     border-radius: 5px;
     float: center;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+/* あらすじ入力欄のスタイル */
+.model_no-column {
+    /* 改行の禁止 */
+    white-space: nowrap;
+
+    /* はみ出した部分を隠す */
+    overflow: hidden;
+
+    /* テキストのはみ出しを「…」で省略 */
+    text-overflow: ellipsis;
+
+    max-width: 200px;
 }
