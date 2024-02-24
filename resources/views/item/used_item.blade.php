@@ -35,6 +35,7 @@
                         <div class="input-group input-group-sm">
                             <div class="d-flex">
                                 <form class="d-flex text-align-center" action="{{ url('/items/used_itemsearch') }}" method="get">
+                                    @csrf
                                     <input class="search-window" type="text" name="used_search" placeholder="検索キーワード" value=''>
                                     <button type="submit" class="search-button ms-4">検索</button>
                                 </form>
@@ -122,7 +123,7 @@
 
     <!-- オリジナルstylecssファイル -->
     <link href="{{ asset('/css/item.css') }}" rel="stylesheet">
-    
+
     @stop
 
     @section('js')

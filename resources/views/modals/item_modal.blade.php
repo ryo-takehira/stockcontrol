@@ -14,12 +14,12 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="card-body">
-                                            <p class="card-test">備品名:{{ $item->name }}</p>
-                                            <p class="card-text">部署: {{ $item->type }}</p>
-                                            <p class="card-text">型番: {{ $item->model_no }}</p>
+                                            <p class="card-test">備品名:{{ $item->name }}</p><br>
+                                            <p class="card-text">部署: {{ $item->type }}</p><br>
+                                            <p class="card-text">型番: {{ $item->model_no }}</p><br>
                                             <div class="overflow-auto" style="max-height: 200px;">
-                                                <p class="card-text">現在の在庫数: {{ $item->stock }}</p>
-                                                <p class="card-text">在庫単位: {{ $item->stock_unit }}</p>
+                                                <p class="card-text">現在の在庫数: {{ $item->stock }}</p><br>
+                                                <p class="card-text">在庫単位: {{ $item->stock_unit }}</p><br>
                                                 <!-- 持出ボタン -->
                                                 <form action="/items/{{$item->id}}/take_out" method="POST">
                                                     <div class="form-group d-flex">

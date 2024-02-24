@@ -35,6 +35,7 @@
                         <div class="input-group input-group-sm">
                             <div class="d-flex">
                                 <form class="d-flex text-align-center" action="{{ url('/items/itemsearch') }}" method="get">
+                                    @csrf
                                     <input class="search-window" type="text" name="search" placeholder="検索キーワード" value=''>
                                     <button type="submit" class="search-button ms-4">検索</button>
                                 </form>

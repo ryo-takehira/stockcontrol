@@ -3,12 +3,31 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h5>ようこそ{!! $auth_user->name !!}さん</h5>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Let's share what we use with care.</p>
+    @foreach ($items as $item)
+    <ul>
+    <li style="width:100px; height:100px; display:inline-block; float:left;"><img src="{!! $item->image_name !!}" alt="IMAGE" style="width:100%; height:100%;"></li>
+    </ul>
+    @endforeach
+
+
+
+
+
+
 @stop
+
+
+
+
+
+
+
+
 
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}

@@ -23,6 +23,7 @@
             <div class="mb-2">
                 <div class="d-flex">
                     <form class="d-flex text-align-center" action="{{ url('/users/usersearch') }}" method="get">
+                        @csrf
                         <input class="search-window" type="text" name="usersearch" placeholder="検索キーワード" value=''>
                         <button type="submit" class="search-button ms-4">検索</button>
                     </form>
