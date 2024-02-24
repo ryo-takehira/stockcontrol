@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'stockcontrol')
 
 @section('content_header')
     <h5>ようこそ{!! $auth_user->name !!}さん</h5>

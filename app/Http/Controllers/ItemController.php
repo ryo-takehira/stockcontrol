@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+// メール送信用
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificationEmail;
 
 
 class ItemController extends Controller
@@ -63,6 +66,26 @@ class ItemController extends Controller
 
         $model->update(['stock' => $model->stock - $used_quantity,]);
 
+        if ($model->stock < $model->minimum_stock) {
+            // ②メール送信に使うインスタンスを生成
+            $NotificationEmail = new NotificationEmail();
+            // ③メール送信
+            Mail::send($NotificationEmail);
+
+            // // ⑤送信成功か確認
+            // if (count(Mail::failures()) > 0) {
+            //     $message = 'メール送信に失敗しました';
+
+            //     // 元の画面に戻る
+            //     return back()->withErrors($message);
+            // } else {
+            //     $messages = 'メールを送信しました';
+
+            //     // 別のページに遷移する
+            //     return redirect()->route('hoge')->with(compact('messages'));
+            // }
+        }
+
         // modelのItemから全てのデータを受け取る
         $items = Item::paginate(6);
         // viewのItemにデータを受け渡す
@@ -87,9 +110,10 @@ class ItemController extends Controller
                 [
                     'name' => 'required|max:100',
                     'type' => 'required',
+                    'image_name'=>'required|file|mimes:jpg,jpeg,png,svg,gif',
                     'model_no' => 'required|max:100',
                     'order_name' => 'required|max:15',
-                    'order_phone' => ['regex:/^0[7-9]0\d{8}$|^0\d{9}$/','nullable'],
+                    'order_phone' => ['regex:/^0[7-9]0\d{8}$|^0\d{9}$/', 'nullable'],
                     'stock_unit' => 'required|max:50',
                     'stock' => 'required|integer',
                     'minimum_stock' => 'required|integer',
@@ -99,6 +123,7 @@ class ItemController extends Controller
                 [
                     'name.required' => '備品名は必須です。',
                     'type.required' => '部署を選択してください。',
+                    'image_name.required' => '画像を選択してください。',
                     'model_no.required' => '型番、品番は必須です。',
                     'order_name.required' => '発注先は必須です。',
                     'order_phone.regex' => '電話番号ではありません。',
@@ -204,9 +229,10 @@ class ItemController extends Controller
                 [
                     'name' => 'required|max:100',
                     'type' => 'required',
+                    'image_name'=>'required|file|mimes:jpg,jpeg,png,svg,gif',
                     'model_no' => 'required|max:100',
                     'order_name' => 'required|max:15',
-                    'order_phone' => ['regex:/^0[7-9]0\d{8}$|^0\d{9}$/','nullable'],
+                    'order_phone' => ['regex:/^0[7-9]0\d{8}$|^0\d{9}$/', 'nullable'],
                     'stock_unit' => 'required|max:50',
                     'stock' => 'required|integer',
                     'minimum_stock' => 'required|integer',
@@ -216,6 +242,7 @@ class ItemController extends Controller
                 [
                     'name.required' => '備品名は必須です。',
                     'type.required' => '部署を選択してください。',
+                    'image_name.required' => '画像を選択してください。',
                     'model_no.required' => '型番、品番は必須です。',
                     'order_name.required' => '発注先は必須です。',
                     'order_phone.regex' => '電話番号ではありません。',
@@ -329,37 +356,36 @@ class ItemController extends Controller
 
 
 
-        // 備品一覧検索(ユーザー画面)
-        public function used_itemsearch(Request $request)
-        {
-            $items = Item::all();
-    
-            $search = $request->input('used_search');
-    
-            $query = Item::query();
-    
-            // $query = $query->paginate($query->count());
-    
-            if (!empty($search)) {
-    
-                // 全角スペースを半角に変換
-                $spaceConversion = mb_convert_kana($search, 's');
-    
-                // 単語を半角スペースで区切り、配列にする（例："山田 翔" → ["山田", "翔"]）
-                $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
-    
-                // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
-                foreach ($wordArraySearched as $value) {
-    
-                    $query = Item::where('name', 'like', '%' . $value . '%')
-                        ->orWhere('type', 'like', '%' . $value . '%')
-                        ->orWhere('model_no', 'like', '%' . $value . '%');
-                }
+    // 備品一覧検索(ユーザー画面)
+    public function used_itemsearch(Request $request)
+    {
+        $items = Item::all();
+
+        $search = $request->input('used_search');
+
+        $query = Item::query();
+
+        // $query = $query->paginate($query->count());
+
+        if (!empty($search)) {
+
+            // 全角スペースを半角に変換
+            $spaceConversion = mb_convert_kana($search, 's');
+
+            // 単語を半角スペースで区切り、配列にする（例："山田 翔" → ["山田", "翔"]）
+            $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
+
+            // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
+            foreach ($wordArraySearched as $value) {
+
+                $query = Item::where('name', 'like', '%' . $value . '%')
+                    ->orWhere('type', 'like', '%' . $value . '%')
+                    ->orWhere('model_no', 'like', '%' . $value . '%');
             }
-    
-            $items = $query->latest('updated_at')->paginate(10);
-    
-            return view('item.used_item', compact('items'));
         }
-    
+
+        $items = $query->latest('updated_at')->paginate(10);
+
+        return view('item.used_item', compact('items'));
+    }
 }
