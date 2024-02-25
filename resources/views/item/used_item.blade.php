@@ -50,7 +50,7 @@
                                     <th class="fixed01">備品名</th>
                                     <th class="fixed02">部署</th>
                                     <th class="fixed02">画像</th>
-                                    <th class="fixed02">型番</th>
+                                    <th class="fixed02">型番・品番</th>
                                     <th class="fixed02">在庫単位</th>
                                     <th class="fixed02">在庫数</th>
                                     <th class="fixed02">最低在庫数</th>
