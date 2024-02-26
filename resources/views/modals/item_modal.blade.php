@@ -16,7 +16,7 @@
                                         <div class="card-body">
                                             <p class="card-test">備品名:{{ $item->name }}</p><br>
                                             <p class="card-text">部署: {{ $item->type }}</p><br>
-                                            <p class="card-text">型番: {{ $item->model_no }}</p><br>
+                                            <p class="card-text">型番・品番: {{ $item->model_no }}</p><br>
                                             <div class="overflow-auto" style="max-height: 200px;">
                                                 <p class="card-text">現在の在庫数: {{ $item->stock }}</p><br>
                                                 <p class="card-text">在庫単位: {{ $item->stock_unit }}</p><br>
