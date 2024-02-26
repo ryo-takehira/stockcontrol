@@ -53,6 +53,37 @@
 }
 
 
+/* 検索機能のスタイル */
+/* 検索窓 */
+.search-window {
+    width: 160px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.search-window:hover {
+    width: 160px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* 検索ボタン */
+.search-button {
+    width: 70px;
+    margin: 0px 0px 0px 5px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.search-button:hover {
+    margin: 0px 0px 0px 5px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+
 /* 画面表示幅が500px以下だった時(全体のレスポンシブデザイン) */
 @media screen and (max-width: 500px) {
 
@@ -76,6 +107,37 @@
     
         /* z-indexは値が大きいほど手前側に表示されます */
         z-index: 999;
+    }
+
+        /* 検索機能のスタイル */
+    /* 検索窓 */
+    .search-window {
+        width: 130px;
+        height: 40px;
+        border-radius: 5px;
+    }
+
+    .search-window:hover {
+        width: 130px;
+        height: 40px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    }
+
+        /* 検索ボタン */
+    .search-button {
+        width: 55px;
+        margin: 0px 0px 0px 5px;
+        height: 40px;
+        border-radius: 5px;
+    }
+
+    .search-button:hover {
+        width: 55px;
+        margin: 0px 0px 0px 5px;
+        height: 40px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
     }
     
 
@@ -212,36 +274,6 @@ td {
     font-size: 20px;
 }
 
-
-/* 検索機能のスタイル */
-/* 検索窓 */
-.search-window {
-    width: 160px;
-    height: 40px;
-    border-radius: 5px;
-}
-
-.search-window:hover {
-    width: 160px;
-    height: 40px;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-}
-
-/* 検索ボタン */
-.search-button {
-    width: 70px;
-    margin: 0px 0px 0px 5px;
-    height: 40px;
-    border-radius: 5px;
-}
-
-.search-button:hover {
-    margin: 0px 0px 0px 5px;
-    height: 40px;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-}
 
 .button {
     width: 85px;
