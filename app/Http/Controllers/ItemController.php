@@ -150,6 +150,7 @@ class ItemController extends Controller
                 // ResizeImage::make($request->file('image_name'))->resize(100, 100);
 
                 $image_file = $request->file('image_name');
+                // $image_name = $request->file('image_name')->resize(300, 200);
 
                 // ファイル名を取得(ファイル名.拡張子)
                 $fileNmae = $image_file->getClientOriginalName();
