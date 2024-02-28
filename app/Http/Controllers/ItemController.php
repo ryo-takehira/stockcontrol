@@ -146,10 +146,7 @@ class ItemController extends Controller
             // hasFile メソッドでアップロードファイルの存在を確認
             if ($request->hasFile('image_name')) {
 
-                // $image_name = $request->file('image_name');
-
-
-$image_name = Item::make($request->file('image_name')->getRealPath())->resize(300, 200);
+                $image_name = $request->file('image_name')->resize(300, 200)
 
                 // ファイル名を取得(ファイル名.拡張子)
                 $fileNmae = $image_name->getClientOriginalName();
