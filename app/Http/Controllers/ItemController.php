@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
-// メール送信用
-use Illuminate\Support\Facades\Mail;
-use App\Mail\NotificationEmail;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Facades\ResizeImage;
+
 
 
 class ItemController extends Controller
@@ -146,16 +147,32 @@ class ItemController extends Controller
             // hasFile メソッドでアップロードファイルの存在を確認
             if ($request->hasFile('image_name')) {
 
-                $image_name = $request->file('image_name');
+                // ResizeImage::make($request->file('image_name'))->resize(100, 100);
+
+                $image_file = $request->file('image_name');
 
                 // ファイル名を取得(ファイル名.拡張子)
-                $fileNmae = $image_name->getClientOriginalName();
+                $fileNmae = $image_file->getClientOriginalName();
+
+                // 希望するドライバーで新しいマネージャー インスタンスを作成する
+                $manager = new ImageManager(new Driver());
+
+                // 画像を垂直に反転し、別名で保存する例
+                $imgPath = public_path('/tmp/' . $fileNmae);
+                // dd($imgPath);
+                $img = $manager->read($image_file);
+                $img->resize(height: 300);
+                $path=storage_path('app/public/' . $fileNmae);
+                $img->save($path);
+                
+
+                // InterventionImage::make($image_name)->resize(1080, 700)->save(public_path('/images/' . $fileNmae ) );;
 
                 // ファイルの名から拡張子のみを取り出す
                 $type_name = pathinfo($fileNmae, PATHINFO_EXTENSION);
 
                 // ファイル名をbase64形式でデータのimage_nameに入れる
-                $items['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($image_name->path()));
+                $items['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($path));
 
                 // アップロードファイルの存在なし 
                 // no_image用の画像データ->config(定数);->$itemlists[image_name];へ
