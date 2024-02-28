@@ -158,12 +158,19 @@ class ItemController extends Controller
                 // 希望するドライバーで新しいマネージャー インスタンスを作成する
                 $manager = new ImageManager(new Driver());
 
-                // 画像を垂直に反転し、別名で保存する例
-                $imgPath = public_path('/tmp/' . $fileNmae);
+                // 画像のpublic/tmp//$fileNmaeのパスを変数に格納
+                
+                // $imgPath = public_path('/tmp/' . $fileNmae);
+
                 // dd($imgPath);
+
+                // 希望するドライバーで新しいマネージャーでファイルを読み取る
                 $img = $manager->read($image_file);
-                $img->resize(height: 300);
+                // サイズ変更で圧縮
+                $img->resize(height: 300 , width: 200);
+                // 保存されたファイルパスを取得し変数に格納する
                 $path=storage_path('app/public/' . $fileNmae);
+                // ファイルを保存する
                 $img->save($path);
                 
 
@@ -276,29 +283,78 @@ class ItemController extends Controller
                 ]
             );
 
+            // hasFile メソッドでアップロードファイルの存在を確認
+            if ($request->hasFile('image_name')) {
+
+            $image_file = $request->file('image_name');
+            // $image_name = $request->file('image_name')->resize(300, 200);
+
+            // ファイル名を取得(ファイル名.拡張子)
+            $fileNmae = $image_file->getClientOriginalName();
+
+            // 希望するドライバーで新しいマネージャー インスタンスを作成する
+            $manager = new ImageManager(new Driver());
+
+            // 画像のpublic/tmp//$fileNmaeのパスを変数に格納
+            
+            // $imgPath = public_path('/tmp/' . $fileNmae);
+
+            // dd($imgPath);
+
+            // 希望するドライバーで新しいマネージャーでファイルを読み取る
+            $img = $manager->read($image_file);
+            // サイズ変更で圧縮
+            $img->resize(height: 300 , width: 200);
+            // 保存されたファイルパスを取得し変数に格納する
+            $path=storage_path('app/public/' . $fileNmae);
+            // ファイルを保存する
+            $img->save($path);
+            
+
+            // InterventionImage::make($image_name)->resize(1080, 700)->save(public_path('/images/' . $fileNmae ) );;
+
+            // ファイルの名から拡張子のみを取り出す
+            $type_name = pathinfo($fileNmae, PATHINFO_EXTENSION);
+
+            // ファイル名をbase64形式でデータのimage_nameに入れる
+            $itemupdate['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($path));
+
+            // アップロードファイルの存在なし 
+            // no_image用の画像データ->config(定数);->$itemlists[image_name];へ
+        } else {
+            $items['image_name'] = config('noimage.no_image');
+        }
+
             // dd($items);  
 
             // dd($request->file('image_name'));
 
-            // hasFile メソッドでアップロードファイルの存在を確認
-            if ($request->hasFile('image_name')) {
 
-                $image_name = $request->file('image_name');
 
-                // ファイル名を取得(ファイル名.拡張子)
-                $fileNmae = $image_name->getClientOriginalName();
+            // データ圧縮前のコードここから
 
-                // ファイルの名から拡張子のみを取り出す
-                $type_name = pathinfo($fileNmae, PATHINFO_EXTENSION);
+            //     if ($request->hasFile('image_name')) {
 
-                // ファイル名をbase64形式でデータのimage_nameに入れる
-                $itemupdate['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($image_name->path()));
+            //     $image_name = $request->file('image_name');
 
-                // アップロードファイルの存在なし 
-                // no_image用の画像データ->config(定数);->$itemlists[image_name];へ
-            } else {
-                $item['image_name'] = config('noimage.no_image');
-            }
+            //     // ファイル名を取得(ファイル名.拡張子)
+            //     $fileNmae = $image_name->getClientOriginalName();
+
+            //     // ファイルの名から拡張子のみを取り出す
+            //     $type_name = pathinfo($fileNmae, PATHINFO_EXTENSION);
+
+            //     // ファイル名をbase64形式でデータのimage_nameに入れる
+            //     $itemupdate['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($image_name->path()));
+
+            //     // アップロードファイルの存在なし 
+            //     // no_image用の画像データ->config(定数);->$itemlists[image_name];へ
+            // } else {
+            //     $item['image_name'] = config('noimage.no_image');
+            // }
+
+            // データ圧縮前のコードここまで
+
+
 
             // print_r($item);
             // exit;
