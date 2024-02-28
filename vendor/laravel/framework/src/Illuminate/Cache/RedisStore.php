@@ -253,7 +253,7 @@ class RedisStore extends TaggableStore implements LockProvider
     /**
      * Remove all expired tag set entries.
      *
-     * @return bool
+     * @return void
      */
     public function flushStaleTags()
     {
@@ -317,7 +317,7 @@ class RedisStore extends TaggableStore implements LockProvider
                     yield $tag;
                 }
             } while (((string) $cursor) !== $defaultCursorValue);
-        })->map(fn (string $tagKey) => Str::match('/^'.preg_quote($prefix).'tag:(.*):entries$/', $tagKey));
+        })->map(fn (string $tagKey) => Str::match('/^'.preg_quote($prefix, '/').'tag:(.*):entries$/', $tagKey));
     }
 
     /**

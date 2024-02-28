@@ -80,12 +80,12 @@ class Sleep
     /**
      * Sleep until the given timestamp.
      *
-     * @param  \DateTimeInterface|int  $timestamp
+     * @param  \DateTimeInterface|int|float|numeric-string  $timestamp
      * @return static
      */
     public static function until($timestamp)
     {
-        if (is_int($timestamp)) {
+        if (is_numeric($timestamp)) {
             $timestamp = Carbon::createFromTimestamp($timestamp);
         }
 
@@ -427,7 +427,7 @@ class Sleep
     /**
      * Only sleep when the given condition is true.
      *
-     * @param  (\Closure($this): bool)|bool $condition
+     * @param  (\Closure($this): bool)|bool  $condition
      * @return $this
      */
     public function when($condition)
@@ -440,7 +440,7 @@ class Sleep
     /**
      * Don't sleep when the given condition is true.
      *
-     * @param  (\Closure($this): bool)|bool $condition
+     * @param  (\Closure($this): bool)|bool  $condition
      * @return $this
      */
     public function unless($condition)
