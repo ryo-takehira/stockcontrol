@@ -156,7 +156,7 @@ class ItemController extends Controller
                 $fileNmae = $image_file->getClientOriginalName();
 
                 // 希望するドライバーで新しいマネージャー インスタンスを作成する
-                $manager = new ImageManager(new Driver());
+                // $manager = new ImageManager(new Driver());
 
                 // 画像のpublic/tmp//$fileNmaeのパスを変数に格納
                 
@@ -165,17 +165,17 @@ class ItemController extends Controller
                 // dd($imgPath);
 
                 // 希望するドライバーで新しいマネージャーでファイルを読み取る
-                $img = $manager->read($image_file);
+                // $img = $manager->read($image_file);
                 // サイズ変更で圧縮
-                $img->resize(height: 800 , width: 500);
+                // $img->resize(height: 800 , width: 500);
 
                 // ピクセレーション効果で圧縮
-                $img = $img->pixelate(0.5);
+                // $img = $img->pixelate(0.5);
                 
                 // 保存されたファイルパスを取得し変数に格納する
-                $path=storage_path('app/public/' . $fileNmae);
+                // $path=storage_path('app/public/' . $fileNmae);
                 // ファイルを保存する
-                $img->save($path);
+                // $img->save($path);
                 
 
                 // InterventionImage::make($image_name)->resize(1080, 700)->save(public_path('/images/' . $fileNmae ) );;
@@ -184,7 +184,8 @@ class ItemController extends Controller
                 $type_name = pathinfo($fileNmae, PATHINFO_EXTENSION);
 
                 // ファイル名をbase64形式でデータのimage_nameに入れる
-                $items['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($path));
+                // $items['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($path));
+                $items['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($image_file->path()));
 
                 // アップロードファイルの存在なし 
                 // no_image用の画像データ->config(定数);->$itemlists[image_name];へ
