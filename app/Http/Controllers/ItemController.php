@@ -260,7 +260,7 @@ class ItemController extends Controller
                 [
                     'name' => 'required|max:100',
                     'type' => 'required',
-                    'image_name'=>'file|mimes:jpg,jpeg,png,svg,gif',
+                    'image_name'=>'file|mimes:jpg,jpeg,png',
                     'model_no' => 'required|max:100',
                     'order_name' => 'required|max:15',
                     'order_phone' => ['regex:/^0[7-9]0\d{8}$|^0\d{9}$/', 'nullable'],
@@ -273,7 +273,7 @@ class ItemController extends Controller
                 [
                     'name.required' => '備品名は必須です。',
                     'type.required' => '保管場所を選択してください。',
-                    'image_name.mimes:jpg,jpeg,png,svg,gif' => '画像はjpg,jpeg,png,svg,gifのみ登録できます。',
+                    'image_name.mimes:jpg,jpeg,png,svg,gif' => '画像はjpg,jpeg,pngのみ登録できます。',
                     'model_no.required' => '型番、品番は必須です。',
                     'order_name.required' => '発注先は必須です。',
                     'order_phone.regex' => '電話番号ではありません。',

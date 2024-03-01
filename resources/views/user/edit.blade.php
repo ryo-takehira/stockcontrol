@@ -51,14 +51,13 @@
                             <!-- <option value="{{ $user->isAdmin }}" {{ old('isAdmin') == '' ? 'selected' : '' }}>{{ $user->isAdmin }}</option> -->
                             <option value="10" {{ $user->isAdmin == 10 ? 'selected' : '' }}>一般ユーザー</option>
                             <option value="1" {{ $user->isAdmin == 1 ? 'selected' : '' }}>master</option>
-                            <option value="2" {{ $user->isAdmin == 2 ? 'selected' : '' }}>営業</option>
-                            <option value="3" {{ $user->isAdmin == 3 ? 'selected' : '' }}>事務</option>
-                            <option value="4" {{ $user->isAdmin == 4 ? 'selected' : '' }}>CAD</option>
-                            <option value="5" {{ $user->isAdmin == 5 ? 'selected' : '' }}>第一工場</option>
-                            <option value="6" {{ $user->isAdmin == 6 ? 'selected' : '' }}>第二工場</option>
-                            <option value="7" {{ $user->isAdmin == 7 ? 'selected' : '' }}>第三工場</option>
-                            <option value="8" {{ $user->isAdmin == 8 ? 'selected' : '' }}>第四工場</option>
-                            <option value="9" {{ $user->isAdmin == 9 ? 'selected' : '' }}>配送・発送</option>
+                            <option value="3" {{ $user->isAdmin == 2 ? 'selected' : '' }}>事務所</option>
+                            <option value="4" {{ $user->isAdmin == 3 ? 'selected' : '' }}>CAD室</option>
+                            <option value="5" {{ $user->isAdmin == 4 ? 'selected' : '' }}>第一工場</option>
+                            <option value="6" {{ $user->isAdmin == 5 ? 'selected' : '' }}>第二工場</option>
+                            <option value="7" {{ $user->isAdmin == 6 ? 'selected' : '' }}>第三工場</option>
+                            <option value="8" {{ $user->isAdmin == 7 ? 'selected' : '' }}>第四工場</option>
+                            <option value="9" {{ $user->isAdmin == 8 ? 'selected' : '' }}>発送</option>
                         </select>
                     </div>
                 </div>
