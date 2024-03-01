@@ -160,7 +160,7 @@ class ItemController extends Controller
 
                 // 画像のpublic/tmp//$fileNmaeのパスを変数に格納
                 
-                // $imgPath = public_path('/tmp/' . $fileNmae);
+                $imgPath = public_path('/tmp/' . $fileNmae);
 
                 // dd($imgPath);
 
@@ -185,6 +185,7 @@ class ItemController extends Controller
 
                 // ファイル名をbase64形式でデータのimage_nameに入れる
                 $items['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($path));
+                // $items['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($image_file->path()));
 
                 // アップロードファイルの存在なし 
                 // no_image用の画像データ->config(定数);->$itemlists[image_name];へ
@@ -194,6 +195,7 @@ class ItemController extends Controller
 
             // print_r($items['image_name']);
             // exit;
+            
 
             Item::create([
                 'user_id' => Auth::user()->id,
