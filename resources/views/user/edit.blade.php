@@ -41,6 +41,7 @@
                             <option value="第二工場" {{ $user->user_type == '第二工場' ? 'selected' : '' }}>第二工場</option>
                             <option value="第三工場" {{ $user->user_type == '第三工場' ? 'selected' : '' }}>第三工場</option>
                             <option value="第四工場" {{ $user->user_type == '第四工場' ? 'selected' : '' }}>第四工場</option>
+                            <option value="配送・発送" {{ $user->user_type == '配送・発送' ? 'selected' : '' }}>配送・発送</option>
                         </select>
                     </div>
                     
@@ -57,6 +58,7 @@
                             <option value="6" {{ $user->isAdmin == 6 ? 'selected' : '' }}>第二工場</option>
                             <option value="7" {{ $user->isAdmin == 7 ? 'selected' : '' }}>第三工場</option>
                             <option value="8" {{ $user->isAdmin == 8 ? 'selected' : '' }}>第四工場</option>
+                            <option value="9" {{ $user->isAdmin == 9 ? 'selected' : '' }}>配送・発送</option>
                         </select>
                     </div>
                 </div>

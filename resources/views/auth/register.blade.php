@@ -73,6 +73,7 @@
                                     <option value="第二工場" {{ old('user_type') == '第二工場' ? 'selected' : '' }}>第二工場</option>
                                     <option value="第三工場" {{ old('user_type') == '第三工場' ? 'selected' : '' }}>第三工場</option>
                                     <option value="第四工場" {{ old('user_type') == '第四工場' ? 'selected' : '' }}>第四工場</option>
+                                    <option value="配送・発送" {{ old('user_type') == '配送・発送' ? 'selected' : '' }}>配送・発送</option>
                             </div>
                             </select>
                         </div>

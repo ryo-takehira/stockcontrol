@@ -32,16 +32,16 @@
                     </div>
 
                     <div class="form-group">
-                        <label>部署</label>
+                        <label>保管場所</label>
                         <select class="form-control" name="type" id="type">
                             <option value="{{ $item->type }}" {{ old('type') == '' ? 'selected' : '' }}>{{ $item->type }}</option>
-                            <option value="営業" {{ old('type') == '営業' ? 'selected' : '' }}>営業</option>
-                            <option value="事務" {{ old('type') == '事務' ? 'selected' : '' }}>事務</option>
-                            <option value="CAD" {{ old('type') == 'CAD' ? 'selected' : '' }}>CAD</option>
+                            <option value="事務所" {{ old('type') == '事務所' ? 'selected' : '' }}>事務所</option>
+                            <option value="CAD室" {{ old('type') == 'CAD室' ? 'selected' : '' }}>CAD室</option>
                             <option value="第一工場" {{ old('type') == '第一工場' ? 'selected' : '' }}>第一工場</option>
                             <option value="第二工場" {{ old('type') == '第二工場' ? 'selected' : '' }}>第二工場</option>
                             <option value="第三工場" {{ old('type') == '第三工場' ? 'selected' : '' }}>第三工場</option>
                             <option value="第四工場" {{ old('type') == '第四工場' ? 'selected' : '' }}>第四工場</option>
+                            <option value="発送" {{ old('type') == '発送' ? 'selected' : '' }}>発送</option>
                         </select>
                     </div>
 
