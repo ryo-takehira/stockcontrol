@@ -111,7 +111,7 @@ class ItemController extends Controller
                 [
                     'name' => 'required|max:100',
                     'type' => 'required',
-                    'image_name'=>'required|file|mimes:jpg,jpeg,png,svg,gif',
+                    'image_name'=>'file|mimes:jpg,jpeg,png,svg,gif',
                     'model_no' => 'required|max:100',
                     'order_name' => 'required|max:15',
                     'order_phone' => ['regex:/^0[7-9]0\d{8}$|^0\d{9}$/', 'nullable'],
@@ -123,8 +123,8 @@ class ItemController extends Controller
                 ],
                 [
                     'name.required' => '備品名は必須です。',
-                    'type.required' => '部署を選択してください。',
-                    'image_name.required' => '画像を選択してください。',
+                    'type.required' => '保管場所を選択してください。',
+                    'image_name.mimes:jpg,jpeg,png,svg,gif' => '画像はjpg,jpeg,png,svg,gifのみ登録できます。',
                     'model_no.required' => '型番、品番は必須です。',
                     'order_name.required' => '発注先は必須です。',
                     'order_phone.regex' => '電話番号ではありません。',
@@ -167,7 +167,7 @@ class ItemController extends Controller
                 // 希望するドライバーで新しいマネージャーでファイルを読み取る
                 $img = $manager->read($image_file);
                 // サイズ変更で圧縮
-                $img->resize(height: 800 , width: 500);
+                $img->resize(height: 500 , width: 500);
 
                 // ピクセレーション効果で圧縮
                 $img = $img->pixelate(0.5);
@@ -260,7 +260,7 @@ class ItemController extends Controller
                 [
                     'name' => 'required|max:100',
                     'type' => 'required',
-                    'image_name'=>'required|file|mimes:jpg,jpeg,png,svg,gif',
+                    'image_name'=>'file|mimes:jpg,jpeg,png,svg,gif',
                     'model_no' => 'required|max:100',
                     'order_name' => 'required|max:15',
                     'order_phone' => ['regex:/^0[7-9]0\d{8}$|^0\d{9}$/', 'nullable'],
@@ -272,8 +272,8 @@ class ItemController extends Controller
                 ],
                 [
                     'name.required' => '備品名は必須です。',
-                    'type.required' => '部署を選択してください。',
-                    'image_name.required' => '画像を選択してください。',
+                    'type.required' => '保管場所を選択してください。',
+                    'image_name.mimes:jpg,jpeg,png,svg,gif' => '画像はjpg,jpeg,png,svg,gifのみ登録できます。',
                     'model_no.required' => '型番、品番は必須です。',
                     'order_name.required' => '発注先は必須です。',
                     'order_phone.regex' => '電話番号ではありません。',
@@ -310,7 +310,7 @@ class ItemController extends Controller
             // 希望するドライバーで新しいマネージャーでファイルを読み取る
             $img = $manager->read($image_file);
             // サイズ変更で圧縮
-            $img->resize(height: 1080 , width: 800);
+            $img->resize(height: 500 , width: 500);
             
             // ピクセレーション効果で圧縮
             $img = $img->pixelate(0.5);
