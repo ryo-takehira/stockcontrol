@@ -71,6 +71,8 @@
                             <td class="align-middle">第三工場</td>
                             @elseif($user->isAdmin==8)
                             <td class="align-middle">第四工場</td>
+                            @elseif($user->isAdmin==9)
+                            <td class="align-middle">配送・発送</td>
                             @endif
 
                             <td class="align-middle">{{ $user->created_at}}</td>
