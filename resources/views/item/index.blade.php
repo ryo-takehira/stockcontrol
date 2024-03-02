@@ -16,10 +16,10 @@
 </div>
 
 <!-- 在庫チェック -->
-@foreach ($items as $item)
-@if($item->stock < $item->minimum_stock)
+@foreach ($items_all as $item_all)
+@if($item_all->stock < $item_all->minimum_stock)
     <div>
-        <p style="color:red; font-weight:bold;">{{ $item->type}}の【 {{ $item->name}} 】の在庫が最低在庫数に達しています</p><br>
+        <p style="color:red; font-weight:bold;">{{ $item_all->type}}の【 {{ $item_all->name}} 】の在庫が最低在庫数に達しています</p><br>
     </div>
     @endif
     @endforeach
