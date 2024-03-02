@@ -46,9 +46,10 @@ class ItemController extends Controller
 
         // modelのItemから全てのデータを受け取る
         $items = Item::paginate(6);
+        $items_all = Item::all();
         // viewのItemにデータを受け渡す
 
-        return view('item.used_item', compact('items'));
+        return view('item.used_item', compact('items','items_all'));
     }
 
     /**
@@ -379,7 +380,9 @@ class ItemController extends Controller
             return redirect('/items/index')->with('success', $request['name'] . ' が更新されました。');
         }
 
-        return view('item.edit', compact('item'));
+        $items_all = Item::all();
+
+        return view('item.edit', compact('item','items_all'));
     }
 
 
@@ -434,9 +437,11 @@ class ItemController extends Controller
             }
         }
 
-        $items = $query->latest('updated_at')->paginate(10);
+        $items = $query->latest('updated_at')->paginate(6);
 
-        return view('item.index', compact('items'));
+        $items_all = Item::all();
+
+        return view('item.index', compact('items','items_all'));
     }
 
 
@@ -469,8 +474,10 @@ class ItemController extends Controller
             }
         }
 
-        $items = $query->latest('updated_at')->paginate(10);
+        $items = $query->latest('updated_at')->paginate(6);
 
-        return view('item.used_item', compact('items'));
+        $items_all = Item::all();
+
+        return view('item.used_item', compact('items','items_all'));
     }
 }
