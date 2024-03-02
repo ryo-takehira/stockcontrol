@@ -304,8 +304,28 @@ td {
 }
 
 
-/* あらすじ入力欄のスタイル */
-.model_no-column {
+/* 型番・品番入力欄のスタイル */
+/* .model_no-column { */
+    /* 改行の禁止 */
+    /* white-space: nowrap; */
+
+    /* はみ出した部分を隠す */
+    /* overflow: hidden; */
+
+    /* テキストのはみ出しを「…」で省略 */
+    /* text-overflow: ellipsis; */
+
+    /* max-width: 200px; */
+/* } */
+
+
+/* 備品名、型番・品番テーブルの値 */
+.word-break{
+    /* overflow-wrap: break-all;
+    max-width: 200px;
+    overflow: hidden; */
+
+
     /* 改行の禁止 */
     white-space: nowrap;
 
@@ -315,5 +335,5 @@ td {
     /* テキストのはみ出しを「…」で省略 */
     text-overflow: ellipsis;
 
-    max-width: 200px;
+    max-width: 170px;
 }
