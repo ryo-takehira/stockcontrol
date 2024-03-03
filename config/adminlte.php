@@ -301,7 +301,7 @@ return [
             'key'  => 'menu1_admin_only',
             'text' => '備品管理',
             'url'  => 'items/index',
-            'icon' => 'fab fa-jenkins',
+            'icon' => 'fas fa-server',
         ],
         [
             // 管理権限キー 'key'  => 'menu1_admin_only', EventServiceProviderへ
