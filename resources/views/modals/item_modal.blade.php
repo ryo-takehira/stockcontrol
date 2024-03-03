@@ -24,7 +24,7 @@
                                                 <form action="/items/{{$item->id}}/take_out" method="POST">
                                                     <div class="form-group d-flex">
                                                         <label for="order_name" class="mr-3 mt-2">持出数量</label>
-                                                        <input type="number" class="form-control" id="take_out" name="take_out" required value="0" min="0" placeholder="〇{{ $item->stock_unit }}">
+                                                        <input type="number" class="form-control" id="take_out" name="take_out" required value="" min="0" placeholder="〇{{ $item->stock_unit }}">
                                                     </div>
                                                         {{ csrf_field() }}
                                                         <input type="submit" value="持ち出す" class="btn btn-primary">
