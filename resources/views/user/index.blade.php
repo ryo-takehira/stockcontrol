@@ -58,21 +58,19 @@
                             @elseif($user->isAdmin==1)
                             <td class="align-middle">master</td>
                             @elseif($user->isAdmin==2)
-                            <td class="align-middle">営業</td>
+                            <td class="align-middle">事務所</td>
                             @elseif($user->isAdmin==3)
-                            <td class="align-middle">事務</td>
+                            <td class="align-middle">CAD室</td>
                             @elseif($user->isAdmin==4)
-                            <td class="align-middle">CAD</td>
-                            @elseif($user->isAdmin==5)
                             <td class="align-middle">第一工場</td>
-                            @elseif($user->isAdmin==6)
+                            @elseif($user->isAdmin==5)
                             <td class="align-middle">第二工場</td>
-                            @elseif($user->isAdmin==7)
+                            @elseif($user->isAdmin==6)
                             <td class="align-middle">第三工場</td>
-                            @elseif($user->isAdmin==8)
+                            @elseif($user->isAdmin==7)
                             <td class="align-middle">第四工場</td>
-                            @elseif($user->isAdmin==9)
-                            <td class="align-middle">配送・発送</td>
+                            @elseif($user->isAdmin==8)
+                            <td class="align-middle">発送</td>
                             @endif
 
                             <td class="align-middle">{{ $user->created_at}}</td>
