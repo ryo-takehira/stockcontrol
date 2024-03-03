@@ -30,10 +30,12 @@ class ItemController extends Controller
     {
 
         // modelのItemから全てのデータを受け取る
-        $items = Item::paginate(6);
+        $items = Item::latest('updated_at')->paginate(6);
 
         $items_all = Item::all();
         // viewのItemにデータを受け渡す
+
+        
 
         return view('item.index', compact('items','items_all'));
     }
@@ -45,7 +47,7 @@ class ItemController extends Controller
     {
 
         // modelのItemから全てのデータを受け取る
-        $items = Item::paginate(6);
+        $items = Item::latest('updated_at')->paginate(6);
         $items_all = Item::all();
         // viewのItemにデータを受け渡す
 
