@@ -106,17 +106,17 @@
 
                     <div class="form-group">
                         <label for="minimum_stock">最低在庫数</label>
-                        <input type="number" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数：{{ $item->minimum_stock }}" value="{{ $item->minimum_stock }}">
+                        <input type="number" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数：{{ $item->minimum_stock }}" min="0"  value="{{ $item->minimum_stock }}">
                     </div>
 
                     <div class="form-group">
                         <label for="order_quantity">発注数</label>
-                        <input type="number" class="form-control" id="order_quantity" name="order_quantity" placeholder="発注数：{{ $item->order_quantity }}" value="{{ $item->order_quantity }}">
+                        <input type="number" class="form-control" id="order_quantity" name="order_quantity" placeholder="発注数：{{ $item->order_quantity }}" min="0"  value="{{ $item->order_quantity }}">
                     </div>
 
                     <div class="form-group">
                         <label for="price">単価</label>
-                        <input type="number" class="form-control" id="price" name="price" placeholder="単価：{{ $item->price }}" value="{{ $item->price }}">
+                        <input type="number" class="form-control" id="price" name="price" placeholder="単価：{{ $item->price }}" min="0"  value="{{ $item->price }}">
                     </div>
                 </div>
 
