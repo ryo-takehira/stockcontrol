@@ -337,3 +337,28 @@ td {
 
     max-width: 170px;
 }
+
+.image_select {
+    width: 105px;
+    height: 40px;
+    font-weight: bold;
+
+    background-color: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    float: center;
+}
+
+.image_select:hover {
+    width: 105px;
+    height: 40px;
+    font-weight: bold;
+
+    background-color: #c0c0c0;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    float: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
