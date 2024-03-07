@@ -48,9 +48,21 @@
                     <div class="form-group">
                         <label for="image_name">画像</label><br>
 
-                        <input type="file" name="image_name" id="imageSelect" accept="image/*" multiple accept="image/*" value="{{ $item->image_name }}" /><br>
+                        <input type="file" name="image_name" id="imageSelect" accept="image/*" multiple accept="image/*" value="{{ $item->image_name }}" style="display:none">
+                        <button id="fileSelect" type="button" class="image_select">画像を選択</button><br>
 
                         <img src="{{ $item->image_name }}" id="selectedImage" style="max-width: 100%; max-height: 300px;">
+                        
+                        <script>
+                            const fileSelect = document.getElementById("fileSelect");
+                            const fileElem = document.getElementById("imageSelect");
+
+                            fileSelect.addEventListener("click", (e) => {
+                            if (fileElem) {
+                                fileElem.click();
+                            }
+                            }, false);
+                        </script>
 
                         <script>
                             const imageSelect = document.getElementById("imageSelect");
@@ -71,7 +83,6 @@
                                 }
                             });
                         </script>
-
                     </div>
 
                     <div class="form-group">
@@ -130,6 +141,10 @@
 @stop
 
 @section('css')
+
+        <!-- オリジナルstylecssファイル -->
+        <link href="{{ asset('/css/item.css') }}" rel="stylesheet">
+        
 @stop
 
 @section('js')
