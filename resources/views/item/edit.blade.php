@@ -31,7 +31,6 @@
                         <input type="text" class="form-control" id="name" name="name" placeholder="備品名：{{ $item->name }}" value="{{ $item->name }}">
                     </div>
 
-                    <div class="form-group">
                         <label>保管場所</label>
                         <select class="form-control" name="type" id="type">
                             <option value="{{ $item->type }}" {{ old('type') == '' ? 'selected' : '' }}>{{ $item->type }}</option>
