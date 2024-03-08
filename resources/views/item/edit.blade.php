@@ -26,7 +26,9 @@
                 <div class="card-body">
                     <div class="form-group">　　
                         <label for="name">備品名</label>
-
+                    </div> 
+                     
+                        <div class="form-group">
                         <input type="hidden" name="item_id" id="item_id" value="{!! $item->id !!}"> 
                         <input type="text" class="form-control" id="name" name="name" placeholder="備品名：{{ $item->name }}" value="{{ $item->name }}">
                     </div>
