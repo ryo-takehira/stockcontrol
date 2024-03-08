@@ -30,6 +30,8 @@
                         <label for="name">備品名</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="備品名：{{ $item->name }}" value="{{ $item->name }}">
                     </div>
+                                            
+                        <div class="form-group">
 
                         <label>保管場所</label>
                         <select class="form-control" name="type" id="type">
