@@ -26,7 +26,6 @@
                 <div class="card-body">
                     <div class="form-group">　　
                         <label for="name">備品名</label>
-                    </div> 
                      
                         <div class="form-group">
                         <input type="hidden" name="item_id" id="item_id" value="{!! $item->id !!}"> 
