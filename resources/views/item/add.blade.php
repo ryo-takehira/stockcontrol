@@ -83,6 +83,7 @@
                             });
                         </script>
 
+                    </div>
                         <div class="form-group">
                             <label for="model_no">型番・品番</label>
                             <input type="text" class="form-control" id="model_no" name="model_no" placeholder="型番・品番" value="{{ old('model_no') }}">
