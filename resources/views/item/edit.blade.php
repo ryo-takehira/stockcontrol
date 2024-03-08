@@ -24,9 +24,11 @@
                 @csrf
 
                 <div class="card-body">
+
+    <input type="hidden" name="item_id" id="item_id" value="{!! $item->id !!}"> 
                     <div class="form-group">　　
 
-              <input type="hidden" name="item_id" id="item_id" value="{!! $item->id !!}"> 
+              
 
                         <label for="name">備品名</label>
                      
