@@ -362,3 +362,19 @@ td {
     float: center;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
+
+/* 削除、入庫モーダル画面メッセージ点滅表示 */
+.delete_message{
+    color: red;
+    animation: blinking 1s ease-in-out infinite alternate;
+}
+
+@keyframes blinking {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+.storing_message{
+    color: blue;
+    animation: blinking 1s ease-in-out infinite alternate;
+}
