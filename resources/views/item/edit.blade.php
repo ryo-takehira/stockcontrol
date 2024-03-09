@@ -23,13 +23,13 @@
             <form method="POST" action="{{ url('/items/' . $item->id . '/edit') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
-    <input type="hidden" name="item_id" id="item_id" value="{!! $item->id !!}">
+                <input type="hidden" name="item_id" id="item_id" value="{!! $item->id !!}">
                     <div class="form-group">
                         <label for="name">備品名</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="備品名：{{ $item->name }}" value="{{ $item->name }}">
                     </div>
                                             
-                        <div class="form-group">
+                    <div class="form-group">
 
                         <label>保管場所</label>
                         <select class="form-control" name="type" id="type">
@@ -42,6 +42,7 @@
                             <option value="第四工場" {{ old('type') == '第四工場' ? 'selected' : '' }}>第四工場</option>
                             <option value="発送" {{ old('type') == '発送' ? 'selected' : '' }}>発送</option>
                         </select>
+                        
                     </div>
 
                     <div class="form-group">

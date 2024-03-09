@@ -60,9 +60,7 @@
                                 }
                             }, false);
                         </script>
-
-
-
+                        
                         <script>
                             const imageSelect = document.getElementById("imageSelect");
                             const selectedImage = document.getElementById("selectedImage");
