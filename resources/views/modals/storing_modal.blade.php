@@ -19,6 +19,7 @@
                                             <p class="card-text">型番・品番: {{ $item->model_no }}</p><br>
                                             <div class="overflow-auto" style="max-height: 200px;">
                                                 <p class="card-text">現在の在庫数: {{ $item->stock }}</p><br>
+                                                <p class="card-text storing_message">発注数(入庫数): {{ $item->order_quantity }}</p><br>
                                                 <p class="card-text">在庫単位: {{ $item->stock_unit }}</p><br>
 
                                                 <!-- 入庫ボタン -->
