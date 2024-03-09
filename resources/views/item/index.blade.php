@@ -98,17 +98,31 @@
                                         </td>
                                         <td class="align-middle">
                                             <!-- 削除ボタン -->
-                                            <form action="/items/{{$item->id}}/delete" method="POST">
+                                            <!-- <form action="/items/{{$item->id}}/delete" method="POST">
                                                 {{ csrf_field() }}
                                                 <input type="submit" value="削除" class="btn btn-danger btn-dell">
-                                            </form>
+                                            </form> -->
+
+                                        <!-- 削除ボタン -->
+                                        <button type="button" class="btn btn-danger btn-dell" data-bs-toggle="modal" data-bs-target="#itemDeleteModalLabel{{ $item->id }}">
+                                            削除
+                                        </button>
+                                        <!-- 備品削除モーダル -->
+                                        @include('modals.delete_modal', ['item' => $item])
+
                                         </td>
                                         <td class="align-middle">
                                             <!-- 入庫ボタン -->
-                                            <form action="/items/{{$item->id}}/storing" method="POST">
+                                            <!-- <form action="/items/{{$item->id}}/storing" method="POST">
                                                 @csrf
                                                 <input type="submit" value="入庫" class="btn btn-primary btn-storing">
-                                            </form>
+                                            </form> -->
+                                        <button type="button" class="btn btn-primary btn-storing" data-bs-toggle="modal" data-bs-target="#itemStoringModalLabel{{ $item->id }}">
+                                            入庫
+                                        </button>
+                                        <!-- 備品入庫モーダル -->
+                                        @include('modals.storing_modal', ['item' => $item])
+
                                         </td>
                                     </div>
                                 </tr>
@@ -147,7 +161,7 @@
         </script>
 
         <!-- データ削除確認用ダイアログ -->
-        <script>
+        <!-- <script>
             $(function() {
                 $(".btn-dell").click(function() {
                     if (confirm("本当に削除しますか？")) {
@@ -158,10 +172,10 @@
                     }
                 });
             });
-        </script>
+        </script> -->
 
         <!-- 入庫確認用ダイアログ -->
-        <script>
+        <!-- <script>
             $(function() {
                 $(".btn-storing").click(function() {
                     if (confirm("入庫確定しますか？")) {
@@ -172,7 +186,7 @@
                     }
                 });
             });
-        </script>
+        </script> -->
         @stop
 
         @section('css')
@@ -185,4 +199,7 @@
         @stop
 
         @section('js')
+
+            <!-- Bootstrap JavaScriptのリンク -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         @stop
