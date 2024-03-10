@@ -13,7 +13,7 @@
                                         <img src="{{$item->image_name}}" class="img-fluid" alt="...">
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="card-body">
+                                        <div class="card-body" style="overflow:auto">
                                             <p class="card-test">備品名:{{ $item->name }}</p><br>
                                             <p class="card-text">保管場所: {{ $item->type }}</p><br>
                                             <p class="card-text">型番・品番: {{ $item->model_no }}</p><br>
