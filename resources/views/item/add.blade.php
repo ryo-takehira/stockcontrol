@@ -60,7 +60,7 @@
                                 }
                             }, false);
                         </script>
-                        
+
                         <script>
                             const imageSelect = document.getElementById("imageSelect");
                             const selectedImage = document.getElementById("selectedImage");
@@ -82,55 +82,55 @@
                         </script>
 
                     </div>
-                        <div class="form-group">
-                            <label for="model_no">型番・品番</label>
-                            <input type="text" class="form-control" id="model_no" name="model_no" placeholder="型番・品番" value="{{ old('model_no') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="order_name">発注先</label>
-                            <input type="text" class="form-control" id="order_name" name="order_name" placeholder="発注先" value="{{ old('order_name') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="order_person">発注先担当者</label>
-                            <input type="text" class="form-control" id="order_person" name="order_person" placeholder="発注先担当者" value="{{ old('order_person') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="order_phone">発注先電話番号</label>
-                            <input type="phone" class="form-control" id="order_phone" name="order_phone" placeholder="発注先電話番号" value="{{ old('order_phone') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="stock_unit">在庫単位</label>
-                            <input type="text" class="form-control" id="stock_unit" name="stock_unit" placeholder="在庫単位：本、個、梱包、束など" value="{{ old('stock_unit') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="stock">在庫数</label>
-                            <input type="number" class="form-control" id="stock" name="stock" placeholder="在庫数" value="{{ old('stock') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="minimum_stock">最低在庫数</label>
-                            <input type="number" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数" min="0" value="{{ old('minimum_stock') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="order_quantity">発注数</label>
-                            <input type="number" class="form-control" id="order_quantity" name="order_quantity" placeholder="発注数" min="0" value="{{ old('order_quantity') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="price">単価</label>
-                            <input type="number" class="form-control" id="price" name="price" placeholder="単価" min="0" value="{{ old('price') }}">
-                        </div>
+                    <div class="form-group">
+                        <label for="model_no">型番・品番</label>
+                        <input type="text" class="form-control" id="model_no" name="model_no" placeholder="型番・品番" value="{{ old('model_no') }}">
                     </div>
 
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">登録</button>
+                    <div class="form-group">
+                        <label for="order_name">発注先</label>
+                        <input type="text" class="form-control" id="order_name" name="order_name" placeholder="発注先" value="{{ old('order_name') }}">
                     </div>
+
+                    <div class="form-group">
+                        <label for="order_person">発注先担当者</label>
+                        <input type="text" class="form-control" id="order_person" name="order_person" placeholder="発注先担当者" value="{{ old('order_person') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order_phone">発注先電話番号</label>
+                        <input type="phone" class="form-control" id="order_phone" name="order_phone" placeholder="発注先電話番号" value="{{ old('order_phone') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock_unit">在庫単位</label>
+                        <input type="text" class="form-control" id="stock_unit" name="stock_unit" placeholder="在庫単位：本、個、梱包、束など" value="{{ old('stock_unit') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock">在庫数</label>
+                        <input type="number" class="form-control" id="stock" name="stock" placeholder="在庫数" value="{{ old('stock') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="minimum_stock">最低在庫数</label>
+                        <input type="number" class="form-control" id="minimum_stock" name="minimum_stock" placeholder="最低在庫数" min="0" value="{{ old('minimum_stock') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order_quantity">発注数</label>
+                        <input type="number" class="form-control" id="order_quantity" name="order_quantity" placeholder="発注数" min="0" value="{{ old('order_quantity') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">単価</label>
+                        <input type="number" class="form-control" id="price" name="price" placeholder="単価" min="0" value="{{ old('price') }}">
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">登録</button>
+                </div>
             </form>
         </div>
     </div>
@@ -139,9 +139,9 @@
 
 @section('css')
 
-        <!-- オリジナルstylecssファイル -->
-        <link href="{{ asset('/css/item.css') }}" rel="stylesheet">
-        
+<!-- オリジナルstylecssファイル -->
+<link href="{{ asset('/css/item.css') }}" rel="stylesheet">
+
 @stop
 
 @section('js')

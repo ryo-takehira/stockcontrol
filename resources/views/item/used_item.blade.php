@@ -8,9 +8,9 @@
 <div class="d-flex">
     <h4 class="titlename">備品一覧</h4>
 
-    @if(session('success'))
+    @if(session('usedsuccess'))
     <div id="successMessage" class="custom-message">
-        {{ session('success') }}
+        {{ session('usedsuccess') }}
     </div>
     @endif
 </div>

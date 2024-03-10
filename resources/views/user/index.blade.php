@@ -7,11 +7,13 @@
 @section('content_header')
 <div class="d-flex">
     <h4 class="titlename">ユーザー管理</h4>
-    @if(session('success'))
+
+    @if(session('usersuccess'))
     <div id="successMessage" class="custom-message">
-        {{ session('success') }}
+        {{ session('usersuccess') }}
     </div>
     @endif
+
 </div>
 @stop
 
