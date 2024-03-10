@@ -94,10 +94,14 @@
                                 <div class="align-middle">
                                     <td class="align-middle">
                                         <!-- 削除ボタン -->
-                                        <form action="/users/{{$user->id}}/delete" method="POST">
-                                            {{ csrf_field() }}
-                                            <input type="submit" value="削除" class="btn btn-danger btn-dell">
-                                        </form>
+
+
+                                        <button type="button" class="btn btn-danger btn-dell" data-bs-toggle="modal" data-bs-target="#userDeleteModalLabel{{ $user->id }}">
+                                            削除
+                                        </button>
+                                        <!-- ユーザー削除モーダル -->
+                                        @include('modals.user_modal', ['user' => $user])
+
                                     </td>
                                     @else
                                     <td class="align-middle">
@@ -141,7 +145,7 @@
 </script>
 
 <!-- データ削除確認用ダイアログ -->
-<script>
+<!-- <script>
     $(function() {
         $(".btn-dell").click(function() {
             if (confirm("本当に削除しますか？")) {
@@ -152,7 +156,7 @@
             }
         });
     });
-</script>
+</script> -->
 
 @stop
 
@@ -162,4 +166,7 @@
 @stop
 
 @section('js')
+
+        <!-- Bootstrap JavaScriptのリンク モーダル用-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 @stop
