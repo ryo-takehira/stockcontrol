@@ -3,14 +3,14 @@
         <div class="modal-content">
 
 
-            <div class="modal-body">
+            <div class="modal-body" style="overflow:auto">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                             <div class="card mb-3">
                                 <div class="row g-0">
-                                    <div class="col-md-6">
-                                        <div class="card-body" style="overflow:auto">
+                                    <div class="col-md-6"> -->
+                                        <div class="card-body">
                                             <h4 class="card-test">ユーザー情報</h4><br>
                                             <p class="card-test">ID:{{ $user->id }}</p><br>
                                             <p class="card-test">ユーザー名:{{ $user->name }}</p><br>
@@ -49,10 +49,10 @@
 
                                             </div>
                                         </div>
-                                    </div>
+                                    <!-- </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
