@@ -10,7 +10,7 @@
                             <div class="card mb-3">
                                 <div class="row g-0">
                                     <div class="col-md-6">
-                                        <div class="card-body">
+                                        <div class="card-body" style="overflow:auto">
                                             <h4 class="card-test">ユーザー情報</h4><br>
                                             <p class="card-test">ID:{{ $user->id }}</p><br>
                                             <p class="card-test">ユーザー名:{{ $user->name }}</p><br>
