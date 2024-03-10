@@ -8,11 +8,12 @@
 <div class="d-flex">
     <h4 class="titlename">備品管理</h4>
 
-    @if(session('success'))
+    @if(session('itemsuccess'))
     <div id="successMessage" class="custom-message">
-        {{ session('success') }}
+        {{ session('itemsuccess') }}
     </div>
     @endif
+
 </div>
 
 <!-- 在庫チェック -->
@@ -103,12 +104,12 @@
                                                 <input type="submit" value="削除" class="btn btn-danger btn-dell">
                                             </form> -->
 
-                                        <!-- 削除ボタン -->
-                                        <button type="button" class="btn btn-danger btn-dell" data-bs-toggle="modal" data-bs-target="#itemDeleteModalLabel{{ $item->id }}">
-                                            削除
-                                        </button>
-                                        <!-- 備品削除モーダル -->
-                                        @include('modals.delete_modal', ['item' => $item])
+                                            <!-- 削除ボタン -->
+                                            <button type="button" class="btn btn-danger btn-dell" data-bs-toggle="modal" data-bs-target="#itemDeleteModalLabel{{ $item->id }}">
+                                                削除
+                                            </button>
+                                            <!-- 備品削除モーダル -->
+                                            @include('modals.delete_modal', ['item' => $item])
 
                                         </td>
                                         <td class="align-middle">
@@ -117,11 +118,11 @@
                                                 @csrf
                                                 <input type="submit" value="入庫" class="btn btn-primary btn-storing">
                                             </form> -->
-                                        <button type="button" class="btn btn-primary btn-storing" data-bs-toggle="modal" data-bs-target="#itemStoringModalLabel{{ $item->id }}">
-                                            入庫
-                                        </button>
-                                        <!-- 備品入庫モーダル -->
-                                        @include('modals.storing_modal', ['item' => $item])
+                                            <button type="button" class="btn btn-primary btn-storing" data-bs-toggle="modal" data-bs-target="#itemStoringModalLabel{{ $item->id }}">
+                                                入庫
+                                            </button>
+                                            <!-- 備品入庫モーダル -->
+                                            @include('modals.storing_modal', ['item' => $item])
 
                                         </td>
                                     </div>
@@ -200,6 +201,6 @@
 
         @section('js')
 
-            <!-- Bootstrap JavaScriptのリンク -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap JavaScriptのリンク -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         @stop

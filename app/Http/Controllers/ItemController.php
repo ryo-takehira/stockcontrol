@@ -35,9 +35,9 @@ class ItemController extends Controller
         $items_all = Item::all();
         // viewのItemにデータを受け渡す
 
-        
 
-        return view('item.index', compact('items','items_all'));
+
+        return view('item.index', compact('items', 'items_all'));
     }
 
     /**
@@ -51,7 +51,7 @@ class ItemController extends Controller
         $items_all = Item::all();
         // viewのItemにデータを受け渡す
 
-        return view('item.used_item', compact('items','items_all'));
+        return view('item.used_item', compact('items', 'items_all'));
     }
 
     /**
@@ -73,23 +73,23 @@ class ItemController extends Controller
         $model->update(['stock' => $model->stock - $used_quantity,]);
 
         // if ($model->stock < $model->minimum_stock) {
-            // ②メール送信に使うインスタンスを生成
-            // $NotificationEmail = new NotificationEmail();
-            // ③メール送信
-            // Mail::send($NotificationEmail);
+        // ②メール送信に使うインスタンスを生成
+        // $NotificationEmail = new NotificationEmail();
+        // ③メール送信
+        // Mail::send($NotificationEmail);
 
-            // // ⑤送信成功か確認
-            // if (count(Mail::failures()) > 0) {
-            //     $message = 'メール送信に失敗しました';
+        // // ⑤送信成功か確認
+        // if (count(Mail::failures()) > 0) {
+        //     $message = 'メール送信に失敗しました';
 
-            //     // 元の画面に戻る
-            //     return back()->withErrors($message);
-            // } else {
-            //     $messages = 'メールを送信しました';
+        //     // 元の画面に戻る
+        //     return back()->withErrors($message);
+        // } else {
+        //     $messages = 'メールを送信しました';
 
-            //     // 別のページに遷移する
-            //     return redirect()->route('hoge')->with(compact('messages'));
-            // }
+        //     // 別のページに遷移する
+        //     return redirect()->route('hoge')->with(compact('messages'));
+        // }
         // }
 
         // modelのItemから全てのデータを受け取る
@@ -99,7 +99,7 @@ class ItemController extends Controller
         // return view('item.used_item', compact('items'));
 
         // ルート/itemsにリダイレクト
-        return redirect('/items')->with('success', $model['name'] . ' が ' . $used_quantity . $model['stock_unit'] . ' 持出確定されました。');
+        return redirect('/items')->with('usedsuccess', $model['name'] . ' が ' . $used_quantity . $model['stock_unit'] . ' 持出確定されました。');
     }
 
     /**
@@ -116,7 +116,7 @@ class ItemController extends Controller
                 [
                     'name' => 'required|max:100',
                     'type' => 'required',
-                    'image_name'=>'file|mimes:jpg,jpeg,png',
+                    'image_name' => 'file|mimes:jpg,jpeg,png',
                     'model_no' => 'required|max:100',
                     'order_name' => 'required|max:15',
                     'order_phone' => ['regex:/^0[7-9]0\d{8}$|^0\d{9}$/', 'nullable'],
@@ -164,7 +164,7 @@ class ItemController extends Controller
                 $manager = new ImageManager(new Driver());
 
                 // 画像のpublic/tmp//$fileNmaeのパスを変数に格納
-                
+
                 $imgPath = public_path('/tmp/' . $fileNmae);
 
                 // dd($imgPath);
@@ -172,16 +172,16 @@ class ItemController extends Controller
                 // 希望するドライバーで新しいマネージャーでファイルを読み取る
                 $img = $manager->read($image_file);
                 // サイズ変更で圧縮
-                $img->resize(height: 375 , width: 500);
+                $img->resize(height: 375, width: 500);
 
                 // ピクセレーション効果で圧縮
                 $img = $img->pixelate(0.5);
-                
+
                 // 保存されたファイルパスを取得し変数に格納する
-                $path=storage_path('app/public/' . $fileNmae);
+                $path = storage_path('app/public/' . $fileNmae);
                 // ファイルを保存する
                 $img->save($path);
-                
+
 
                 // InterventionImage::make($image_name)->resize(1080, 700)->save(public_path('/images/' . $fileNmae ) );;
 
@@ -200,7 +200,7 @@ class ItemController extends Controller
 
             // print_r($items['image_name']);
             // exit;
-            
+
 
             Item::create([
                 'user_id' => Auth::user()->id,
@@ -221,7 +221,7 @@ class ItemController extends Controller
             Item::latest('updated_at')->paginate(6);
 
             // 備品管理画面へ
-            return redirect('/items/index')->with('success', $request['name'] . ' が登録されました。');
+            return redirect('/items/index')->with('itemsuccess', $request['name'] . ' が登録されました。');
         }
 
         return view('item.add');
@@ -241,7 +241,7 @@ class ItemController extends Controller
 
         Item::latest('updated_at')->paginate(6);
 
-        return redirect('/items/index')->with('success', $item['name'] . ' が削除されました。');
+        return redirect('/items/index')->with('itemsuccess', $item['name'] . ' が削除されました。');
     }
 
 
@@ -265,7 +265,7 @@ class ItemController extends Controller
                 [
                     'name' => 'required|max:100',
                     'type' => 'required',
-                    'image_name'=>'file|mimes:jpg,jpeg,png',
+                    'image_name' => 'file|mimes:jpg,jpeg,png',
                     'model_no' => 'required|max:100',
                     'order_name' => 'required|max:15',
                     'order_phone' => ['regex:/^0[7-9]0\d{8}$|^0\d{9}$/', 'nullable'],
@@ -297,47 +297,47 @@ class ItemController extends Controller
             // hasFile メソッドでアップロードファイルの存在を確認
             if ($request->hasFile('image_name')) {
 
-            $image_file = $request->file('image_name');
-            // $image_name = $request->file('image_name')->resize(300, 200);
+                $image_file = $request->file('image_name');
+                // $image_name = $request->file('image_name')->resize(300, 200);
 
-            // ファイル名を取得(ファイル名.拡張子)
-            $fileNmae = $image_file->getClientOriginalName();
+                // ファイル名を取得(ファイル名.拡張子)
+                $fileNmae = $image_file->getClientOriginalName();
 
-            // 希望するドライバーで新しいマネージャー インスタンスを作成する
-            $manager = new ImageManager(new Driver());
+                // 希望するドライバーで新しいマネージャー インスタンスを作成する
+                $manager = new ImageManager(new Driver());
 
-            // 画像のpublic/tmp//$fileNmaeのパスを変数に格納
-            
-            // $imgPath = public_path('/tmp/' . $fileNmae);
+                // 画像のpublic/tmp//$fileNmaeのパスを変数に格納
 
-            // dd($imgPath);
+                // $imgPath = public_path('/tmp/' . $fileNmae);
 
-            // 希望するドライバーで新しいマネージャーでファイルを読み取る
-            $img = $manager->read($image_file);
-            // サイズ変更で圧縮
-            $img->resize(height: 375 , width: 500);
-            
-            // ピクセレーション効果で圧縮
-            $img = $img->pixelate(0.5);
-            // 保存されたファイルパスを取得し変数に格納する
-            $path=storage_path('app/public/' . $fileNmae);
-            // ファイルを保存する
-            $img->save($path);
-            
+                // dd($imgPath);
 
-            // InterventionImage::make($image_name)->resize(1080, 700)->save(public_path('/images/' . $fileNmae ) );;
+                // 希望するドライバーで新しいマネージャーでファイルを読み取る
+                $img = $manager->read($image_file);
+                // サイズ変更で圧縮
+                $img->resize(height: 375, width: 500);
 
-            // ファイルの名から拡張子のみを取り出す
-            $type_name = pathinfo($fileNmae, PATHINFO_EXTENSION);
+                // ピクセレーション効果で圧縮
+                $img = $img->pixelate(0.5);
+                // 保存されたファイルパスを取得し変数に格納する
+                $path = storage_path('app/public/' . $fileNmae);
+                // ファイルを保存する
+                $img->save($path);
 
-            // ファイル名をbase64形式でデータのimage_nameに入れる
-            $itemupdate['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($path));
 
-            // アップロードファイルの存在なし 
-            // no_image用の画像データ->config(定数);->$itemlists[image_name];へ
-        } else {
-            $items['image_name'] = config('noimage.no_image');
-        }
+                // InterventionImage::make($image_name)->resize(1080, 700)->save(public_path('/images/' . $fileNmae ) );;
+
+                // ファイルの名から拡張子のみを取り出す
+                $type_name = pathinfo($fileNmae, PATHINFO_EXTENSION);
+
+                // ファイル名をbase64形式でデータのimage_nameに入れる
+                $itemupdate['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($path));
+
+                // アップロードファイルの存在なし 
+                // no_image用の画像データ->config(定数);->$itemlists[image_name];へ
+            } else {
+                $items['image_name'] = config('noimage.no_image');
+            }
 
             // dd($items);  
 
@@ -379,12 +379,12 @@ class ItemController extends Controller
             Item::latest('updated_at')->paginate(6);
 
             // 商品管理画面へ
-            return redirect('/items/index')->with('success', $request['name'] . ' が更新されました。');
+            return redirect('/items/index')->with('itemsuccess', $request['name'] . ' が更新されました。');
         }
 
         $items_all = Item::all();
 
-        return view('item.edit', compact('item','items_all'));
+        return view('item.edit', compact('item', 'items_all'));
     }
 
 
@@ -407,7 +407,7 @@ class ItemController extends Controller
         Item::latest('updated_at')->paginate(6);
 
         // 更新後item一覧へ
-        return redirect('/items/index')->with('success', $item['name'] . ' の在庫が入庫されました。');
+        return redirect('/items/index')->with('itemsuccess', $item['name'] . ' の在庫が入庫されました。');
     }
 
     // 備品一覧検索(管理画面)
@@ -443,7 +443,7 @@ class ItemController extends Controller
 
         $items_all = Item::all();
 
-        return view('item.index', compact('items','items_all'));
+        return view('item.index', compact('items', 'items_all'));
     }
 
 
@@ -480,6 +480,6 @@ class ItemController extends Controller
 
         $items_all = Item::all();
 
-        return view('item.used_item', compact('items','items_all'));
+        return view('item.used_item', compact('items', 'items_all'));
     }
 }
