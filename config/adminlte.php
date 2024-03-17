@@ -308,7 +308,7 @@ return [
             'key'  => 'menu2_admin_only',
             'text' => 'ユーザー管理',
             'url'  => 'users',
-            'icon' => 'fas fa-users-cog',
+            'icon' => 'far fa-address-book',
         ],
 
         [
