@@ -172,10 +172,18 @@ class ItemController extends Controller
                 // 希望するドライバーで新しいマネージャーでファイルを読み取る
                 $img = $manager->read($image_file);
                 // サイズ変更で圧縮
-                $img->resize(height: 375, width: 500);
+                                // $img->resize(375, 375);
+
+                $newWidth = 500;
+                $aspectRatio = $img->width() / $img->height();
+                $newHeight = $newWidth / $aspectRatio;
+
+                // アスペクト比を保持してリサイズする
+                $img->resize($newWidth, $newHeight);
 
                 // ピクセレーション効果で圧縮
-                $img = $img->pixelate(0.5);
+                // $img = $img->pixelate(0.1);
+
 
                 // 保存されたファイルパスを取得し変数に格納する
                 $path = storage_path('app/public/' . $fileNmae);
@@ -315,10 +323,19 @@ class ItemController extends Controller
                 // 希望するドライバーで新しいマネージャーでファイルを読み取る
                 $img = $manager->read($image_file);
                 // サイズ変更で圧縮
-                $img->resize(height: 375, width: 500);
+                // $img->resize(375, 375);
+
+                $newWidth = 500;
+                $aspectRatio = $img->width() / $img->height();
+                $newHeight = $newWidth / $aspectRatio;
+
+                // アスペクト比を保持してリサイズする
+                $img->resize($newWidth, $newHeight);
 
                 // ピクセレーション効果で圧縮
-                $img = $img->pixelate(0.5);
+                // $img = $img->pixelate(0.1);
+
+
                 // 保存されたファイルパスを取得し変数に格納する
                 $path = storage_path('app/public/' . $fileNmae);
                 // ファイルを保存する
